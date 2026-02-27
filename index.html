@@ -1306,9 +1306,12 @@ async function loadData() {
 
   setLoaderStatus('Fetching live quotes...');
 
-  // Load live quotes via CGI
+  // Load live quotes via CGI (with 8s timeout)
   try {
-    const res = await fetch(QUOTES_URL + '?' + Date.now());
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 8000);
+    const res = await fetch(QUOTES_URL + '?' + Date.now(), { signal: controller.signal });
+    clearTimeout(timeout);
     const data = await res.json();
     if (data.error || data.stale) {
       console.warn('Quotes stale:', data.error);
@@ -1346,13 +1349,27 @@ async function loadData() {
   lastRefresh = new Date();
   setLoaderStatus('Rendering dashboard...');
   
-  await renderAll();
+  try {
+    await renderAll();
+  } catch(e) {
+    console.error('renderAll error:', e);
+  }
   
   // Hide loading overlay
   const overlay = document.getElementById('loading-overlay');
   overlay.classList.add('hidden');
   setTimeout(() => overlay.style.display = 'none', 600);
 }
+
+// Safety: force-hide overlay after 15s no matter what
+setTimeout(function() {
+  const ov = document.getElementById('loading-overlay');
+  if (ov && !ov.classList.contains('hidden')) {
+    console.warn('Force-hiding loading overlay after timeout');
+    ov.classList.add('hidden');
+    setTimeout(() => ov.style.display = 'none', 600);
+  }
+}, 15000);
 
 function setLoaderStatus(msg) {
   const el = document.getElementById('loader-status');
@@ -1400,25 +1417,30 @@ function calcDailyPnL() {
 // RENDER ALL SECTIONS
 // ─────────────────────────────────────────────────────────────────────────────
 async function renderAll() {
-  updateTimestamps();
-  updateLiveBadge();
-  renderOverview();
-  renderAllocationCharts();
-  renderHoldingsTable();
-  renderCorrelation();
-  renderRiskMetrics();
-  renderPerformance();
-  renderMonteCarlo();
-  renderStressTests();
-  renderFundamentals();
-  renderYieldCurve();
-  renderRebalancing();
-  renderIncome();
-  renderEarnings();
-  renderEstimates();
-  renderSentiment();
-  renderValuation();
-  renderMacro();
+  const fns = [
+    ['Timestamps', updateTimestamps],
+    ['LiveBadge', updateLiveBadge],
+    ['Overview', renderOverview],
+    ['Allocation', renderAllocationCharts],
+    ['Holdings', renderHoldingsTable],
+    ['Correlation', renderCorrelation],
+    ['Risk', renderRiskMetrics],
+    ['Performance', renderPerformance],
+    ['MonteCarlo', renderMonteCarlo],
+    ['Stress', renderStressTests],
+    ['Fundamentals', renderFundamentals],
+    ['YieldCurve', renderYieldCurve],
+    ['Rebalancing', renderRebalancing],
+    ['Income', renderIncome],
+    ['Earnings', renderEarnings],
+    ['Estimates', renderEstimates],
+    ['Sentiment', renderSentiment],
+    ['Valuation', renderValuation],
+    ['Macro', renderMacro]
+  ];
+  for (const [name, fn] of fns) {
+    try { fn(); } catch(e) { console.error('Render error in ' + name + ':', e); }
+  }
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
