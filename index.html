@@ -34,19 +34,26 @@
 
 * { margin:0; padding:0; box-sizing:border-box; }
 
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 body {
   background: var(--bg-primary);
   color: var(--text-primary);
   font-family: var(--sans);
-  min-height: 100vh;
+  height: 100vh;
   display: flex;
+  overflow: hidden;
 }
 
 ::-webkit-scrollbar { width: 6px; height: 6px; }
 ::-webkit-scrollbar-track { background: var(--bg-primary); }
 ::-webkit-scrollbar-thumb { background: var(--border-bright); border-radius: 3px; }
 
-/* ── SIDEBAR ──────────────────────────────────── */
+/* SIDEBAR */
 .sidebar {
   width: 220px;
   min-width: 220px;
@@ -165,7 +172,7 @@ body {
 
 .ts-line { margin-top: 3px; font-size: 8px; }
 
-/* ── MAIN CONTENT ──────────────────────────────── */
+/* MAIN CONTENT */
 .main {
   flex: 1;
   overflow-y: auto;
@@ -203,7 +210,7 @@ body {
   letter-spacing: 1px;
 }
 
-/* ── LOADING SKELETON ──────────────────────────── */
+/* LOADING SKELETON */
 #loading-overlay {
   position: fixed;
   inset: 0;
@@ -262,7 +269,7 @@ body {
   min-height: 16px;
 }
 
-/* ── ERROR BANNER ───────────────────────────────── */
+/* ERROR BANNER */
 .stale-banner {
   display: none;
   background: rgba(245,158,11,0.08);
@@ -278,7 +285,7 @@ body {
 }
 .stale-banner.visible { display: flex; }
 
-/* ── CARDS & GRIDS ──────────────────────────────── */
+/* CARDS & GRIDS */
 .card {
   background: var(--bg-card);
   border: 1px solid var(--border);
@@ -292,7 +299,7 @@ body {
 .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
 .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
 
-/* ── STAT CARDS ─────────────────────────────────── */
+/* STAT CARDS */
 .stat-label {
   font-family: var(--mono);
   font-size: 9px;
@@ -333,7 +340,7 @@ body {
 .neg { color: var(--accent-red);   background: rgba(239,68,68,0.1); }
 .neu { color: var(--text-secondary); background: rgba(136,146,164,0.1); }
 
-/* ── HOLDINGS TABLE ──────────────────────────────── */
+/* HOLDINGS TABLE */
 .table-wrapper { overflow-x: auto; }
 
 table {
@@ -399,10 +406,10 @@ tbody td.right { text-align: right; }
   transition: width 0.3s ease;
 }
 
-/* ── CHARTS ──────────────────────────────────────── */
+/* CHARTS */
 .chart-wrapper { position: relative; }
 
-/* ── CORRELATION HEATMAP ─────────────────────────── */
+/* CORRELATION HEATMAP */
 .corr-grid {
   display: grid;
   gap: 2px;
@@ -424,7 +431,7 @@ tbody td.right { text-align: right; }
 
 .corr-cell:hover { transform: scale(1.1); z-index: 2; }
 
-/* ── RISK METRICS ────────────────────────────────── */
+/* RISK METRICS */
 .metric-row {
   display: flex;
   justify-content: space-between;
@@ -442,7 +449,7 @@ tbody td.right { text-align: right; }
 .tag-ok      { background: rgba(16,185,129,0.12); color: var(--accent-green); }
 .tag-neutral { background: rgba(59,130,246,0.12); color: var(--accent-blue); }
 
-/* ── STRESS TESTS ────────────────────────────────── */
+/* STRESS TESTS */
 .stress-card {
   background: var(--bg-card);
   border: 1px solid var(--border);
@@ -455,7 +462,7 @@ tbody td.right { text-align: right; }
 
 .stress-change { font-family: var(--mono); font-size: 20px; font-weight: 600; }
 
-/* ── FUNDAMENTALS ────────────────────────────────── */
+/* FUNDAMENTALS */
 .fund-select {
   background: var(--bg-card);
   border: 1px solid var(--border);
@@ -468,7 +475,7 @@ tbody td.right { text-align: right; }
   cursor: pointer;
 }
 
-/* ── REBALANCING ─────────────────────────────────── */
+/* REBALANCING */
 .rebal-row {
   display: grid;
   grid-template-columns: 80px 1fr 80px 80px;
@@ -489,7 +496,7 @@ tbody td.right { text-align: right; }
 .bar-erc     { background: var(--accent-green); }
 .bar-div     { background: var(--accent-orange); }
 
-/* ── YIELD CURVE ─────────────────────────────────── */
+/* YIELD CURVE */
 .yield-select {
   background: var(--bg-card);
   border: 1px solid var(--border);
@@ -502,7 +509,7 @@ tbody td.right { text-align: right; }
   cursor: pointer;
 }
 
-/* ── INCOME ──────────────────────────────────────── */
+/* INCOME */
 .income-row {
   display: flex;
   justify-content: space-between;
@@ -514,7 +521,7 @@ tbody td.right { text-align: right; }
 }
 .income-row:last-child { border-bottom: none; }
 
-/* ── SKELETON PULSAR ─────────────────────────────── */
+/* SKELETON PULSAR */
 .skel {
   background: linear-gradient(90deg, var(--bg-card) 25%, var(--border) 50%, var(--bg-card) 75%);
   background-size: 200% 100%;
@@ -527,7 +534,7 @@ tbody td.right { text-align: right; }
   100% { background-position: -200% 0; }
 }
 
-/* ── MOBILE ───────────────────────────────────────── */
+/* MOBILE */
 .hamburger {
   display: none;
   position: fixed;
@@ -556,7 +563,7 @@ tbody td.right { text-align: right; }
   .grid-3 { grid-template-columns: 1fr; }
 }
 
-/* ── MISC ─────────────────────────────────────────── */
+/* MISC */
 .tag {
   display: inline-block;
   font-family: var(--mono);
@@ -653,59 +660,59 @@ h3.card-title {
 </div>
 
 <!-- Mobile hamburger -->
-<button class="hamburger" onclick="toggleSidebar()">☰</button>
+<button class="hamburger" onclick="toggleSidebar()">&#9776;</button>
 
 <!-- SIDEBAR -->
 <aside class="sidebar" id="sidebar">
   <div class="sidebar-logo">
     <div class="logo-title">ASSUR CAPITAL</div>
-    <div class="logo-sub">PORTFOLIO TERMINAL v2.0 — LIVE</div>
+    <div class="logo-sub">PORTFOLIO TERMINAL v2.0 - LIVE</div>
     <div class="live-badge" id="live-badge"><span class="live-dot"></span><span id="live-badge-text">LIVE</span></div>
   </div>
   <nav class="sidebar-nav">
     <div class="nav-label">Portfolio</div>
     <a class="nav-item active" href="javascript:void(0)" data-section="overview" onclick="navTo('overview')">
-      <span class="nav-icon">◈</span>Overview
+      <span class="nav-icon">Overview</span>
     </a>
     <a class="nav-item" href="javascript:void(0)" data-section="allocation" onclick="navTo('allocation')">
-      <span class="nav-icon">◉</span>Allocation
+      <span class="nav-icon">Allocation</span>
     </a>
     <a class="nav-item" href="javascript:void(0)" data-section="holdings" onclick="navTo('holdings')">
-      <span class="nav-icon">≡</span>Holdings
+      <span class="nav-icon">Holdings</span>
     </a>
     <div class="nav-label">Analytics</div>
     <a class="nav-item" href="javascript:void(0)" data-section="correlation" onclick="navTo('correlation')">
-      <span class="nav-icon">⊞</span>Correlation
+      <span class="nav-icon">Correlation</span>
     </a>
     <a class="nav-item" href="javascript:void(0)" data-section="risk" onclick="navTo('risk')">
-      <span class="nav-icon">⚠</span>Risk Metrics
+      <span class="nav-icon">Risk Metrics</span>
     </a>
     <a class="nav-item" href="javascript:void(0)" data-section="performance" onclick="navTo('performance')">
-      <span class="nav-icon">↗</span>Performance
+      <span class="nav-icon">Performance</span>
     </a>
     <a class="nav-item" href="javascript:void(0)" data-section="montecarlo" onclick="navTo('montecarlo')">
-      <span class="nav-icon">∿</span>Monte Carlo
+      <span class="nav-icon">Monte Carlo</span>
     </a>
     <a class="nav-item" href="javascript:void(0)" data-section="stress" onclick="navTo('stress')">
-      <span class="nav-icon">◷</span>Stress Tests
+      <span class="nav-icon">Stress Tests</span>
     </a>
     <div class="nav-label">Market Data</div>
     <a class="nav-item" href="javascript:void(0)" data-section="fundamentals" onclick="navTo('fundamentals')">
-      <span class="nav-icon">⊡</span>Fundamentals
+      <span class="nav-icon">Fundamentals</span>
     </a>
     <a class="nav-item" href="javascript:void(0)" data-section="yield" onclick="navTo('yield')">
-      <span class="nav-icon">⌇</span>Yield Curve
+      <span class="nav-icon">Yield Curve</span>
     </a>
     <a class="nav-item" href="javascript:void(0)" data-section="rebalancing" onclick="navTo('rebalancing')">
-      <span class="nav-icon">⇄</span>Rebalancing
+      <span class="nav-icon">Rebalancing</span>
     </a>
     <a class="nav-item" href="javascript:void(0)" data-section="income" onclick="navTo('income')">
-      <span class="nav-icon">$</span>Income
+      <span class="nav-icon">Income</span>
     </a>
   </nav>
   <div class="sidebar-footer" id="sidebar-footer">
-    <div id="ts-analytics">Analytics: —</div>
-    <div class="ts-line" id="ts-prices">Prices: —</div>
+    <div id="ts-analytics">Analytics: -</div>
+    <div class="ts-line" id="ts-prices">Prices: -</div>
     <div class="ts-line" id="ts-refresh">Next refresh: 5m</div>
   </div>
 </aside>
@@ -713,28 +720,28 @@ h3.card-title {
 <!-- MAIN CONTENT -->
 <main class="main" id="main-content">
 
-  <!-- ── OVERVIEW ──────────────────────────── -->
+  <!-- OVERVIEW -->
   <section class="section" id="overview">
     <div class="section-header">
       <span class="section-title">Overview</span>
-      <span class="section-sub" id="overview-updated">—</span>
+      <span class="section-sub" id="overview-updated">-</span>
     </div>
     <div id="stale-banner" class="stale-banner">
-      <span>⚠</span>
-      <span id="stale-msg">Live quotes unavailable — showing cached prices. Data may be stale.</span>
+      <span>Warning</span>
+      <span id="stale-msg">Live quotes unavailable - showing cached prices. Data may be stale.</span>
     </div>
     <div class="grid-4" style="margin-bottom:16px">
       <div class="card">
         <div class="stat-label">Total Value</div>
-        <div class="stat-value big-number" id="stat-total-value">—</div>
-        <div class="stat-sub" id="stat-invested">Invested: —</div>
-        <div class="stat-change" id="stat-total-return">—</div>
+        <div class="stat-value big-number" id="stat-total-value">-</div>
+        <div class="stat-sub" id="stat-invested">Invested: -</div>
+        <div class="stat-change" id="stat-total-return">-</div>
       </div>
       <div class="card">
         <div class="stat-label">Daily P&amp;L</div>
-        <div class="stat-value" id="stat-daily-pnl">—</div>
-        <div class="stat-sub" id="stat-daily-pct">—</div>
-        <div class="stat-sub" style="margin-top:6px;font-size:9px;color:var(--text-muted)">Today's change</div>
+        <div class="stat-value" id="stat-daily-pnl">-</div>
+        <div class="stat-sub" id="stat-daily-pct">-</div>
+        <div class="stat-sub" style="margin-top:6px;font-size:9px;color:var(--text-muted)">Today change</div>
       </div>
       <div class="card">
         <div class="stat-label">Portfolio Return (1Y)</div>
@@ -745,7 +752,7 @@ h3.card-title {
       <div class="card">
         <div class="stat-label">Cash</div>
         <div class="stat-value">$50,000</div>
-        <div class="stat-sub" id="stat-cash-weight">Weight: —</div>
+        <div class="stat-sub" id="stat-cash-weight">Weight: -</div>
         <div class="stat-sub" style="margin-top:4px;font-size:9px;color:var(--text-muted)">17.6% of portfolio</div>
       </div>
     </div>
@@ -777,7 +784,7 @@ h3.card-title {
         </div>
         <div class="metric-row">
           <span class="metric-name">VaR 95% ($)</span>
-          <span class="metric-val" id="var95-dollar">—</span>
+          <span class="metric-val" id="var95-dollar">-</span>
         </div>
         <div class="metric-row">
           <span class="metric-name">VaR 99% (1-day %)</span>
@@ -785,7 +792,7 @@ h3.card-title {
         </div>
         <div class="metric-row">
           <span class="metric-name">VaR 99% ($)</span>
-          <span class="metric-val" id="var99-dollar">—</span>
+          <span class="metric-val" id="var99-dollar">-</span>
         </div>
       </div>
       <div class="card">
@@ -810,11 +817,11 @@ h3.card-title {
     </div>
   </section>
 
-  <!-- ── ALLOCATION ────────────────────────── -->
+  <!-- ALLOCATION -->
   <section class="section" id="allocation">
     <div class="section-header">
       <span class="section-title">Allocation</span>
-      <span class="section-sub">Asset class · Sector · Geography</span>
+      <span class="section-sub">Asset class Sector Geography</span>
     </div>
     <div class="grid-3">
       <div class="card">
@@ -838,11 +845,11 @@ h3.card-title {
     </div>
   </section>
 
-  <!-- ── HOLDINGS ──────────────────────────── -->
+  <!-- HOLDINGS -->
   <section class="section" id="holdings">
     <div class="section-header">
       <span class="section-title">Holdings</span>
-      <span class="section-sub">Live prices · Daily change</span>
+      <span class="section-sub">Live prices Daily change</span>
     </div>
     <div class="card" style="padding:0">
       <div class="table-wrapper">
@@ -865,14 +872,14 @@ h3.card-title {
         </table>
       </div>
     </div>
-    <div class="section-note">Prices fetched live from quotes cache · Daily P&amp;L based on previous close · 1Y Return is trailing 12 months</div>
+    <div class="section-note">Prices fetched live from quotes cache Daily P&amp;L based on previous close 1Y Return is trailing 12 months</div>
   </section>
 
-  <!-- ── CORRELATION ───────────────────────── -->
+  <!-- CORRELATION -->
   <section class="section" id="correlation">
     <div class="section-header">
       <span class="section-title">Correlation Matrix</span>
-      <span class="section-sub">252-day rolling · Pre-computed</span>
+      <span class="section-sub">252-day rolling Pre-computed</span>
     </div>
     <div class="card">
       <div id="corr-container" style="overflow-x:auto"></div>
@@ -880,11 +887,11 @@ h3.card-title {
     </div>
   </section>
 
-  <!-- ── RISK METRICS ──────────────────────── -->
+  <!-- RISK METRICS -->
   <section class="section" id="risk">
     <div class="section-header">
       <span class="section-title">Risk Metrics</span>
-      <span class="section-sub">252-day trailing · Pre-computed</span>
+      <span class="section-sub">252-day trailing Pre-computed</span>
     </div>
     <div class="grid-2">
       <div class="card">
@@ -930,11 +937,11 @@ h3.card-title {
         </div>
         <div class="metric-row">
           <span class="metric-name">VaR 95% ($)</span>
-          <span class="metric-val" id="risk-var95">—</span>
+          <span class="metric-val" id="risk-var95">-</span>
         </div>
         <div class="metric-row">
           <span class="metric-name">VaR 99% ($)</span>
-          <span class="metric-val" id="risk-var99">—</span>
+          <span class="metric-val" id="risk-var99">-</span>
         </div>
         <div class="metric-row">
           <span class="metric-name">HHI Concentration</span>
@@ -950,11 +957,11 @@ h3.card-title {
     </div>
   </section>
 
-  <!-- ── PERFORMANCE ───────────────────────── -->
+  <!-- PERFORMANCE -->
   <section class="section" id="performance">
     <div class="section-header">
       <span class="section-title">Performance</span>
-      <span class="section-sub">252 trading days · Feb 2025 – Feb 2026</span>
+      <span class="section-sub">252 trading days Feb 2025 to Feb 2026</span>
     </div>
     <div class="card" style="margin-bottom:14px">
       <h3 class="card-title">Portfolio vs SPY (Cumulative Return)</h3>
@@ -970,11 +977,11 @@ h3.card-title {
     </div>
   </section>
 
-  <!-- ── MONTE CARLO ───────────────────────── -->
+  <!-- MONTE CARLO -->
   <section class="section" id="montecarlo">
     <div class="section-header">
       <span class="section-title">Monte Carlo Simulation</span>
-      <span class="section-sub">252-day forward projection · 10,000 paths</span>
+      <span class="section-sub">252-day forward projection 10,000 paths</span>
     </div>
     <div class="grid-3" style="margin-bottom:14px">
       <div class="card">
@@ -984,12 +991,12 @@ h3.card-title {
       </div>
       <div class="card">
         <div class="stat-label">Median Outcome</div>
-        <div class="stat-value" id="mc-median-val">—</div>
-        <div class="stat-sub" id="mc-median-chg">—</div>
+        <div class="stat-value" id="mc-median-val">-</div>
+        <div class="stat-sub" id="mc-median-chg">-</div>
       </div>
       <div class="card">
         <div class="stat-label">90th Pctile Value</div>
-        <div class="stat-value" id="mc-p90-val">—</div>
+        <div class="stat-value" id="mc-p90-val">-</div>
         <div class="stat-sub">Best-case scenario</div>
       </div>
     </div>
@@ -1008,31 +1015,30 @@ h3.card-title {
     </div>
   </section>
 
-  <!-- ── STRESS TESTS ──────────────────────── -->
+  <!-- STRESS TESTS -->
   <section class="section" id="stress">
     <div class="section-header">
       <span class="section-title">Stress Tests</span>
       <span class="section-sub">Recalculated from live prices</span>
     </div>
     <div class="grid-2" id="stress-grid">
-      <!-- populated by JS -->
     </div>
   </section>
 
-  <!-- ── FUNDAMENTALS ──────────────────────── -->
+  <!-- FUNDAMENTALS -->
   <section class="section" id="fundamentals">
     <div class="section-header">
       <span class="section-title">Fundamentals</span>
-      <span class="section-sub">8 quarters · Pre-computed</span>
+      <span class="section-sub">8 quarters Pre-computed</span>
     </div>
     <div style="margin-bottom:16px;display:flex;align-items:center;gap:12px">
       <span style="font-family:var(--mono);font-size:11px;color:var(--text-secondary)">Ticker:</span>
       <select class="fund-select" id="fund-ticker-select" onchange="renderFundamentals()">
-        <option value="NU">NU — Nu Holdings</option>
-        <option value="NEE">NEE — NextEra Energy</option>
-        <option value="SHECY">SHECY — Shin-Etsu Chemical</option>
-        <option value="BAK">BAK — Braskem</option>
-        <option value="TSLA">TSLA — Tesla</option>
+        <option value="NU">NU - Nu Holdings</option>
+        <option value="NEE">NEE - NextEra Energy</option>
+        <option value="SHECY">SHECY - Shin-Etsu Chemical</option>
+        <option value="BAK">BAK - Braskem</option>
+        <option value="TSLA">TSLA - Tesla</option>
       </select>
       <span style="font-family:var(--mono);font-size:11px;color:var(--text-secondary)">Metric:</span>
       <select class="fund-select" id="fund-metric-select" onchange="renderFundamentals()">
@@ -1046,7 +1052,7 @@ h3.card-title {
     </div>
     <div class="grid-2">
       <div class="card">
-        <h3 class="card-title" id="fund-chart-title">Revenue — Nu Holdings</h3>
+        <h3 class="card-title" id="fund-chart-title">Revenue - Nu Holdings</h3>
         <div class="chart-wrapper" style="height:240px">
           <canvas id="chart-fundamentals"></canvas>
         </div>
@@ -1058,11 +1064,11 @@ h3.card-title {
     </div>
   </section>
 
-  <!-- ── YIELD CURVE ───────────────────────── -->
+  <!-- YIELD CURVE -->
   <section class="section" id="yield">
     <div class="section-header">
       <span class="section-title">Yield Curve</span>
-      <span class="section-sub">US Treasury · Pre-computed snapshots</span>
+      <span class="section-sub">US Treasury Pre-computed snapshots</span>
     </div>
     <div style="margin-bottom:16px;display:flex;align-items:center;gap:12px">
       <span style="font-family:var(--mono);font-size:11px;color:var(--text-secondary)">Snapshot:</span>
@@ -1083,7 +1089,7 @@ h3.card-title {
     </div>
   </section>
 
-  <!-- ── REBALANCING ───────────────────────── -->
+  <!-- REBALANCING -->
   <section class="section" id="rebalancing">
     <div class="section-header">
       <span class="section-title">Rebalancing</span>
@@ -1097,7 +1103,7 @@ h3.card-title {
       </div>
       <div class="card">
         <div class="stat-label">Rebal. Trades Needed</div>
-        <div class="stat-value" id="rebal-trades">—</div>
+        <div class="stat-value" id="rebal-trades">-</div>
         <div class="stat-sub">To reach ERC target</div>
       </div>
     </div>
@@ -1117,11 +1123,11 @@ h3.card-title {
     </div>
   </section>
 
-  <!-- ── INCOME ────────────────────────────── -->
+  <!-- INCOME -->
   <section class="section" id="income">
     <div class="section-header">
       <span class="section-title">Income</span>
-      <span class="section-sub">Dividend income · Recalculated from live prices</span>
+      <span class="section-sub">Dividend income Recalculated from live prices</span>
     </div>
     <div class="grid-3" style="margin-bottom:16px">
       <div class="card">
@@ -1148,15 +1154,12 @@ h3.card-title {
         <canvas id="chart-income"></canvas>
       </div>
     </div>
-    <div class="section-note">Income is calculated as: Annual Dividend Yield × Current Share Price × Shares Held. Crypto positions (BTC, ETH) and BAK/NU produce no dividends.</div>
+    <div class="section-note">Income is calculated as: Annual Dividend Yield x Current Share Price x Shares Held. Crypto positions (BTC, ETH) and BAK/NU produce no dividends.</div>
   </section>
 
 </main>
 
 <script>
-// ─────────────────────────────────────────────────────────────────────────────
-// CONSTANTS — portfolio fixed positions (never change)
-// ─────────────────────────────────────────────────────────────────────────────
 const POSITIONS = {
   BTC:   { units: 2.36693, quoteKey: 'BTCUSD', isCrypto: true },
   ETH:   { units: 2.5088,  quoteKey: 'ETHUSD', isCrypto: true },
@@ -1171,9 +1174,6 @@ const POSITIONS = {
 
 const CASH_VALUE = 50000;
 
-// ─────────────────────────────────────────────────────────────────────────────
-// GLOBAL STATE
-// ─────────────────────────────────────────────────────────────────────────────
 let analytics = null;
 let quotes = null;
 let isStale = false;
@@ -1183,13 +1183,8 @@ let charts = {};
 const CGI_BIN = '__CGI_BIN__';
 const QUOTES_URL = (CGI_BIN && CGI_BIN !== '__CGI_' + 'BIN__') ? CGI_BIN + '/quotes.py' : './live_quotes.json';
 
-// ─────────────────────────────────────────────────────────────────────────────
-// DATA LOADING
-// ─────────────────────────────────────────────────────────────────────────────
 async function loadData() {
   setLoaderStatus('Loading analytics...');
-  
-  // Load analytics.json
   try {
     const res = await fetch('./analytics.json?' + Date.now());
     analytics = await res.json();
@@ -1198,17 +1193,14 @@ async function loadData() {
     setLoaderStatus('ERROR: Could not load analytics.json');
     return;
   }
-
   setLoaderStatus('Fetching live quotes...');
-
-  // Load live quotes via CGI
   try {
     const res = await fetch(QUOTES_URL + '?' + Date.now());
     const data = await res.json();
     if (data.error || data.stale) {
       console.warn('Quotes stale:', data.error);
       isStale = true;
-      quotes = analytics.portfolio.holdings; // fallback to analytics prices
+      quotes = analytics.portfolio.holdings;
     } else {
       quotes = data.quotes;
       isStale = false;
@@ -1216,18 +1208,12 @@ async function loadData() {
   } catch (e) {
     console.warn('CGI quotes failed, falling back to analytics prices:', e);
     isStale = true;
-    // Build fallback quotes from analytics holdings
     quotes = {};
     for (const [t, h] of Object.entries(analytics.portfolio.holdings)) {
       if (t === 'CASH') continue;
-      const pos = Object.values(POSITIONS).find(p => p.quoteKey && 
-        (POSITIONS[t] ? POSITIONS[t].quoteKey : t) === p.quoteKey);
-      quotes[POSITIONS[t] ? POSITIONS[t].quoteKey || t : t] = {
-        price: h.price, change: 0, changePercent: 0,
-        dayHigh: h.price, dayLow: h.price
-      };
+      const pos = Object.values(POSITIONS).find(p => p.quoteKey && (POSITIONS[t] ? POSITIONS[t].quoteKey : t) === p.quoteKey);
+      quotes[POSITIONS[t] ? POSITIONS[t].quoteKey || t : t] = { price: h.price, change: 0, changePercent: 0, dayHigh: h.price, dayLow: h.price };
     }
-    // Build properly keyed fallback
     quotes = {};
     for (const [ticker, pos] of Object.entries(POSITIONS)) {
       if (!pos.quoteKey) continue;
@@ -1237,13 +1223,9 @@ async function loadData() {
       }
     }
   }
-
   lastRefresh = new Date();
   setLoaderStatus('Rendering dashboard...');
-  
   await renderAll();
-  
-  // Hide loading overlay
   const overlay = document.getElementById('loading-overlay');
   overlay.classList.add('hidden');
   setTimeout(() => overlay.style.display = 'none', 600);
@@ -1254,9 +1236,6 @@ function setLoaderStatus(msg) {
   if (el) el.textContent = msg;
 }
 
-// ─────────────────────────────────────────────────────────────────────────────
-// PRICE MERGING — get live price for any ticker
-// ─────────────────────────────────────────────────────────────────────────────
 function getLivePrice(ticker) {
   const pos = POSITIONS[ticker];
   if (!pos || !pos.quoteKey) return null;
@@ -1291,9 +1270,6 @@ function calcDailyPnL() {
   return pnl;
 }
 
-// ─────────────────────────────────────────────────────────────────────────────
-// RENDER ALL SECTIONS
-// ─────────────────────────────────────────────────────────────────────────────
 async function renderAll() {
   updateTimestamps();
   updateLiveBadge();
@@ -1311,33 +1287,21 @@ async function renderAll() {
   renderIncome();
 }
 
-// ─────────────────────────────────────────────────────────────────────────────
-// TIMESTAMPS & STATUS
-// ─────────────────────────────────────────────────────────────────────────────
 function updateTimestamps() {
   const analyticsTs = analytics?.computed_at;
-  const quotesTs = isStale ? 'STALE' : (lastRefresh ? lastRefresh.toLocaleTimeString() : '—');
-  
+  const quotesTs = isStale ? 'STALE' : (lastRefresh ? lastRefresh.toLocaleTimeString() : '-');
   const tsA = document.getElementById('ts-analytics');
   const tsP = document.getElementById('ts-prices');
-  if (tsA) tsA.textContent = 'Analytics: ' + (analyticsTs ? analyticsTs.slice(0,10) : '—');
-  if (tsP) tsP.textContent = 'Prices: ' + (isStale ? 'STALE ⚠' : ('LIVE @ ' + quotesTs));
-
+  if (tsA) tsA.textContent = 'Analytics: ' + (analyticsTs ? analyticsTs.slice(0,10) : '-');
+  if (tsP) tsP.textContent = 'Prices: ' + (isStale ? 'STALE' : ('LIVE @ ' + quotesTs));
   const overviewUpdated = document.getElementById('overview-updated');
   if (overviewUpdated) {
-    overviewUpdated.textContent = isStale ? 'Stale data — CGI unavailable' : ('Prices as of: ' + quotesTs);
+    overviewUpdated.textContent = isStale ? 'Stale data - CGI unavailable' : ('Prices as of: ' + quotesTs);
   }
-
   const staleBanner = document.getElementById('stale-banner');
   if (staleBanner) {
-    if (isStale) {
-      staleBanner.classList.add('visible');
-    } else {
-      staleBanner.classList.remove('visible');
-    }
+    if (isStale) { staleBanner.classList.add('visible'); } else { staleBanner.classList.remove('visible'); }
   }
-
-  // refresh countdown
   startRefreshCountdown();
 }
 
@@ -1374,18 +1338,9 @@ async function refreshPrices() {
   try {
     const res = await fetch(QUOTES_URL + '?' + Date.now());
     const data = await res.json();
-    if (!data.error && !data.stale) {
-      quotes = data.quotes;
-      isStale = false;
-    } else {
-      isStale = true;
-    }
-  } catch {
-    isStale = true;
-  }
+    if (!data.error && !data.stale) { quotes = data.quotes; isStale = false; } else { isStale = true; }
+  } catch { isStale = true; }
   lastRefresh = new Date();
-  
-  // Re-render live sections only
   updateTimestamps();
   updateLiveBadge();
   renderOverview();
@@ -1395,17 +1350,11 @@ async function refreshPrices() {
   renderIncome();
 }
 
-// ─────────────────────────────────────────────────────────────────────────────
-// FORMATTING HELPERS
-// ─────────────────────────────────────────────────────────────────────────────
 function fmt$(v, d=0)  { return '$' + v.toLocaleString('en-US', {minimumFractionDigits:d, maximumFractionDigits:d}); }
 function fmtPct(v, d=2){ return (v >= 0 ? '+' : '') + v.toFixed(d) + '%'; }
-function fmtChg(v)     { return v >= 0 ? `<span class="pos">▲ ${fmtPct(v)}</span>` : `<span class="neg">▼ ${fmtPct(Math.abs(v))}</span>`; }
+function fmtChg(v)     { return v >= 0 ? '<span class="pos">up ' + fmtPct(v) + '</span>' : '<span class="neg">dn ' + fmtPct(Math.abs(v)) + '</span>'; }
 function colorClass(v) { return v > 0 ? 'pos' : v < 0 ? 'neg' : 'neu'; }
 
-// ─────────────────────────────────────────────────────────────────────────────
-// SECTION 1: OVERVIEW
-// ─────────────────────────────────────────────────────────────────────────────
 function renderOverview() {
   const totalVal = calcTotalValue();
   const invested = analytics.portfolio.total_invested;
@@ -1413,110 +1362,44 @@ function renderOverview() {
   const dailyPnl = calcDailyPnL();
   const dailyPct = (dailyPnl / (totalVal - dailyPnl)) * 100;
   const cashWeight = (CASH_VALUE / totalVal * 100).toFixed(1);
-
   const el = (id) => document.getElementById(id);
   el('stat-total-value').textContent = fmt$(totalVal);
   el('stat-invested').textContent = 'Invested: ' + fmt$(invested);
-  
   const retEl = el('stat-total-return');
   retEl.className = 'stat-change ' + colorClass(totalReturn);
   retEl.textContent = fmtPct(totalReturn) + ' total return';
-  
   const pnlEl = el('stat-daily-pnl');
-  pnlEl.className = 'stat-value ' + (dailyPnl >= 0 ? '' : '');
   pnlEl.style.color = dailyPnl >= 0 ? 'var(--accent-green)' : 'var(--accent-red)';
   pnlEl.textContent = (dailyPnl >= 0 ? '+' : '') + fmt$(dailyPnl, 0);
-  
   el('stat-daily-pct').textContent = (dailyPnl >= 0 ? '+' : '') + dailyPct.toFixed(2) + '% today';
   el('stat-cash-weight').textContent = 'Weight: ' + cashWeight + '%';
-
-  // VaR in dollar terms
   const var95 = totalVal * 0.01781;
   const var99 = totalVal * 0.0337;
   el('var95-dollar').textContent = fmt$(var95, 0);
   el('var99-dollar').textContent = fmt$(var99, 0);
 }
 
-// ─────────────────────────────────────────────────────────────────────────────
-// SECTION 2: ALLOCATION CHARTS
-// ─────────────────────────────────────────────────────────────────────────────
 function renderAllocationCharts() {
   const totalVal = calcTotalValue();
-  
-  // Recalculate by asset class from live values
   const cryptoVal = getLiveValue('BTC') + getLiveValue('ETH');
   const equityVal = getLiveValue('NU') + getLiveValue('NEE') + getLiveValue('SHECY') + getLiveValue('BAK') + getLiveValue('TSLA');
   const fiVal = getLiveValue('IEF');
-
-  const byClass = {
-    labels: ['Crypto', 'Equities', 'Fixed Income', 'Cash'],
-    values: [cryptoVal, equityVal, fiVal, CASH_VALUE],
-    colors: ['#06b6d4', '#3b82f6', '#10b981', '#8b5cf6']
-  };
-
-  // By sector
-  const bySector = {
-    labels: ['Cryptocurrency', 'Financial Services', 'Consumer Cyclical', 'Utilities', 'Basic Materials', 'Fixed Income', 'Cash'],
-    values: [
-      cryptoVal,
-      getLiveValue('NU'),
-      getLiveValue('TSLA'),
-      getLiveValue('NEE'),
-      getLiveValue('SHECY') + getLiveValue('BAK'),
-      fiVal,
-      CASH_VALUE
-    ],
-    colors: ['#06b6d4','#3b82f6','#ef4444','#10b981','#f59e0b','#8b5cf6','#4a5568']
-  };
-
-  // By geo — recalc proportionally
-  const byGeo = {
-    labels: ['Global (Crypto)', 'Brazil', 'US', 'Japan', 'Cash'],
-    values: [cryptoVal, getLiveValue('NU') + getLiveValue('BAK'), getLiveValue('IEF') + getLiveValue('NEE') + getLiveValue('TSLA'), getLiveValue('SHECY'), CASH_VALUE],
-    colors: ['#06b6d4','#10b981','#3b82f6','#ef4444','#8b5cf6']
-  };
-
-  const donutOpts = (data) => ({
-    type: 'doughnut',
-    data: {
-      labels: data.labels,
-      datasets: [{ data: data.values, backgroundColor: data.colors, borderColor: '#07070e', borderWidth: 2 }]
-    },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      plugins: {
-        legend: {
-          position: 'bottom',
-          labels: { color: '#8892a4', font: { family: 'JetBrains Mono', size: 9 }, padding: 8, boxWidth: 10 }
-        },
-        tooltip: {
-          callbacks: {
-            label: (ctx) => ` $${ctx.raw.toLocaleString('en-US', {maximumFractionDigits:0})} (${(ctx.raw/totalVal*100).toFixed(1)}%)`
-          }
-        }
-      },
-      cutout: '60%'
-    }
-  });
-
+  const byClass = { labels: ['Crypto', 'Equities', 'Fixed Income', 'Cash'], values: [cryptoVal, equityVal, fiVal, CASH_VALUE], colors: ['#06b6d4', '#3b82f6', '#10b981', '#8b5cf6'] };
+  const bySector = { labels: ['Cryptocurrency', 'Financial Services', 'Consumer Cyclical', 'Utilities', 'Basic Materials', 'Fixed Income', 'Cash'], values: [cryptoVal, getLiveValue('NU'), getLiveValue('TSLA'), getLiveValue('NEE'), getLiveValue('SHECY') + getLiveValue('BAK'), fiVal, CASH_VALUE], colors: ['#06b6d4','#3b82f6','#ef4444','#10b981','#f59e0b','#8b5cf6','#4a5568'] };
+  const byGeo = { labels: ['Global (Crypto)', 'Brazil', 'US', 'Japan', 'Cash'], values: [cryptoVal, getLiveValue('NU') + getLiveValue('BAK'), getLiveValue('IEF') + getLiveValue('NEE') + getLiveValue('TSLA'), getLiveValue('SHECY'), CASH_VALUE], colors: ['#06b6d4','#10b981','#3b82f6','#ef4444','#8b5cf6'] };
+  const donutOpts = (data) => ({ type: 'doughnut', data: { labels: data.labels, datasets: [{ data: data.values, backgroundColor: data.colors, borderColor: '#07070e', borderWidth: 2 }] }, options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom', labels: { color: '#8892a4', font: { family: 'JetBrains Mono', size: 9 }, padding: 8, boxWidth: 10 } }, tooltip: { callbacks: { label: (ctx) => ' $' + ctx.raw.toLocaleString('en-US', {maximumFractionDigits:0}) + ' (' + (ctx.raw/totalVal*100).toFixed(1) + '%)' } } }, cutout: '60%' } });
   destroyChart('chart-class');
   destroyChart('chart-sector');
   destroyChart('chart-geo');
-
   charts['chart-class']  = new Chart(document.getElementById('chart-class'), donutOpts(byClass));
   charts['chart-sector'] = new Chart(document.getElementById('chart-sector'), donutOpts(bySector));
   charts['chart-geo']    = new Chart(document.getElementById('chart-geo'), donutOpts(byGeo));
 }
 
-// ─────────────────────────────────────────────────────────────────────────────
-// SECTION 3: HOLDINGS TABLE
-// ─────────────────────────────────────────────────────────────────────────────
 function renderHoldingsTable() {
   const totalVal = calcTotalValue();
   const body = document.getElementById('holdings-table-body');
   if (!body) return;
-
   const holdingInfo = {
     BTC:   { name: 'Bitcoin',                category: 'crypto', yr: -20.38 },
     ETH:   { name: 'Ethereum',               category: 'crypto', yr: -14.62 },
@@ -1528,19 +1411,12 @@ function renderHoldingsTable() {
     TSLA:  { name: 'Tesla',                 category: 'equity', yr: 39.42  },
     CASH:  { name: 'Cash (USD)',             category: 'cash',   yr: 0      },
   };
-
   let rows = '';
   for (const [ticker, info] of Object.entries(holdingInfo)) {
-    let price = '—', changePct = 0, change$ = 0, dayHigh = '—', dayLow = '—';
+    let price = '-', changePct = 0, change$ = 0, dayHigh = '-', dayLow = '-';
     let value, units;
-
     if (ticker === 'CASH') {
-      value = CASH_VALUE;
-      units = '—';
-      price = '$1.00';
-      changePct = 0;
-      dayHigh = '—';
-      dayLow = '—';
+      value = CASH_VALUE; units = '-'; price = '$1.00'; changePct = 0; dayHigh = '-'; dayLow = '-';
     } else {
       units = POSITIONS[ticker].units;
       const q = getLivePrice(ticker);
@@ -1548,78 +1424,48 @@ function renderHoldingsTable() {
         price = q.price >= 100 ? fmt$(q.price, 2) : '$' + q.price.toFixed(4);
         changePct = q.changePercent || 0;
         change$ = q.change || 0;
-        dayHigh = q.dayHigh ? fmt$(q.dayHigh, 2) : '—';
-        dayLow  = q.dayLow  ? fmt$(q.dayLow, 2)  : '—';
+        dayHigh = q.dayHigh ? fmt$(q.dayHigh, 2) : '-';
+        dayLow  = q.dayLow  ? fmt$(q.dayLow, 2)  : '-';
         value = q.price * units;
       } else {
         const h = analytics.portfolio.holdings[ticker];
-        price = h ? fmt$(h.price, 2) : '—';
+        price = h ? fmt$(h.price, 2) : '-';
         value = h ? h.value : 0;
         changePct = 0;
       }
     }
-
     const weight = (value / totalVal * 100).toFixed(1);
-    const changeHtml = ticker === 'CASH' ? '<span class="neu">—</span>' : fmtChg(changePct);
-    const yr1Html = info.yr >= 0 ? `<span class="pos">+${info.yr.toFixed(2)}%</span>` : `<span class="neg">${info.yr.toFixed(2)}%</span>`;
+    const changeHtml = ticker === 'CASH' ? '<span class="neu">-</span>' : fmtChg(changePct);
+    const yr1Html = info.yr >= 0 ? '<span class="pos">+' + info.yr.toFixed(2) + '%</span>' : '<span class="neg">' + info.yr.toFixed(2) + '%</span>';
     const badgeClass = info.category === 'crypto' ? 'ticker-badge crypto' : 'ticker-badge';
     const barWidth = Math.min(weight * 1.2, 60);
-    const unitsDisplay = ticker === 'CASH' ? '—' : (units >= 1 ? units.toLocaleString('en-US', {maximumFractionDigits:5}) : units.toFixed(5));
-
-    let rangeDisplay = '—';
-    if (ticker !== 'CASH' && dayHigh !== '—' && dayLow !== '—') {
-      rangeDisplay = dayLow + ' – ' + dayHigh;
-    }
-
-    rows += `<tr>
-      <td><span class="${badgeClass}">${ticker}</span></td>
-      <td style="color:var(--text-secondary)">${info.name}</td>
-      <td class="right" style="font-weight:500">${price}</td>
-      <td class="right">${changeHtml}</td>
-      <td class="right" style="font-size:10px;color:var(--text-muted)">${rangeDisplay}</td>
-      <td class="right" style="color:var(--text-secondary)">${unitsDisplay}</td>
-      <td class="right" style="font-weight:500">${fmt$(value, 0)}</td>
-      <td class="right">
-        <div class="bar-cell" style="justify-content:flex-end">
-          <div class="weight-bar" style="width:${barWidth}px;${info.category==='crypto'?'background:var(--accent-cyan)':''}"></div>
-          <span>${weight}%</span>
-        </div>
-      </td>
-      <td class="right">${yr1Html}</td>
-    </tr>`;
+    const unitsDisplay = ticker === 'CASH' ? '-' : (units >= 1 ? units.toLocaleString('en-US', {maximumFractionDigits:5}) : units.toFixed(5));
+    let rangeDisplay = '-';
+    if (ticker !== 'CASH' && dayHigh !== '-' && dayLow !== '-') { rangeDisplay = dayLow + ' - ' + dayHigh; }
+    rows += '<tr><td><span class="' + badgeClass + '">' + ticker + '</span></td><td style="color:var(--text-secondary)">' + info.name + '</td><td class="right" style="font-weight:500">' + price + '</td><td class="right">' + changeHtml + '</td><td class="right" style="font-size:10px;color:var(--text-muted)">' + rangeDisplay + '</td><td class="right" style="color:var(--text-secondary)">' + unitsDisplay + '</td><td class="right" style="font-weight:500">' + fmt$(value, 0) + '</td><td class="right"><div class="bar-cell" style="justify-content:flex-end"><div class="weight-bar" style="width:' + barWidth + 'px;' + (info.category==='crypto'?'background:var(--accent-cyan)':'') + '"></div><span>' + weight + '%</span></div></td><td class="right">' + yr1Html + '</td></tr>';
   }
-
   body.innerHTML = rows;
 }
 
-// ─────────────────────────────────────────────────────────────────────────────
-// SECTION 4: CORRELATION HEATMAP
-// ─────────────────────────────────────────────────────────────────────────────
 function renderCorrelation() {
   const corr = analytics.correlation;
   const n = corr.labels.length;
   const container = document.getElementById('corr-container');
   if (!container) return;
-
   const cellSize = Math.min(Math.floor((container.offsetWidth || 600) / (n + 1)), 56);
-  
-  let html = `<div class="corr-grid" style="grid-template-columns: ${cellSize}px repeat(${n}, ${cellSize}px)">`;
-  
-  // Header row
-  html += `<div style=""></div>`;
+  let html = '<div class="corr-grid" style="grid-template-columns: ' + cellSize + 'px repeat(' + n + ', ' + cellSize + 'px)">';
+  html += '<div style=""></div>';
   for (const lbl of corr.labels) {
-    html += `<div style="display:flex;align-items:flex-end;justify-content:center;padding:4px 2px;font-family:var(--mono);font-size:9px;font-weight:600;color:var(--text-muted);letter-spacing:0.5px">${lbl}</div>`;
+    html += '<div style="display:flex;align-items:flex-end;justify-content:center;padding:4px 2px;font-family:var(--mono);font-size:9px;font-weight:600;color:var(--text-muted);letter-spacing:0.5px">' + lbl + '</div>';
   }
-
   for (let i = 0; i < n; i++) {
-    // Row label
-    html += `<div style="display:flex;align-items:center;padding-right:6px;font-family:var(--mono);font-size:9px;font-weight:600;color:var(--text-muted);justify-content:flex-end">${corr.labels[i]}</div>`;
+    html += '<div style="display:flex;align-items:center;padding-right:6px;font-family:var(--mono);font-size:9px;font-weight:600;color:var(--text-muted);justify-content:flex-end">' + corr.labels[i] + '</div>';
     for (let j = 0; j < n; j++) {
       const v = corr.matrix[i][j];
       const r = corrColor(v);
       const textColor = Math.abs(v) > 0.4 ? '#fff' : '#aaa';
-      const title = `${corr.labels[i]} vs ${corr.labels[j]}: ${v.toFixed(3)}`;
-      html += `<div class="corr-cell" title="${title}" style="background:${r};color:${textColor};height:${cellSize}px">${v.toFixed(2)}</div>`;
+      const title = corr.labels[i] + ' vs ' + corr.labels[j] + ': ' + v.toFixed(3);
+      html += '<div class="corr-cell" title="' + title + '" style="background:' + r + ';color:' + textColor + ';height:' + cellSize + 'px">' + v.toFixed(2) + '</div>';
     }
   }
   html += '</div>';
@@ -1627,36 +1473,29 @@ function renderCorrelation() {
 }
 
 function corrColor(v) {
-  // Red for positive, teal/green for negative, dark for near-zero
   if (v >= 0.95) return '#1a0000';
   if (v >= 0) {
     const t = v;
     const r = Math.round(30  + t * 225);
     const g = Math.round(0);
     const b = Math.round(0);
-    return `rgba(${r},${g},${b},${0.2 + t*0.7})`;
+    return 'rgba(' + r + ',' + g + ',' + b + ',' + (0.2 + t*0.7) + ')';
   } else {
     const t = -v;
     const r = Math.round(0);
     const g = Math.round(100 + t * 80);
     const b = Math.round(100 + t * 80);
-    return `rgba(${r},${g},${b},${0.15 + t*0.6})`;
+    return 'rgba(' + r + ',' + g + ',' + b + ',' + (0.15 + t*0.6) + ')';
   }
 }
 
-// ─────────────────────────────────────────────────────────────────────────────
-// SECTION 5: RISK METRICS
-// ─────────────────────────────────────────────────────────────────────────────
 function renderRiskMetrics() {
   const totalVal = calcTotalValue();
   const var95 = fmt$(totalVal * 0.01781, 0);
   const var99 = fmt$(totalVal * 0.0337, 0);
-  
   const e = (id, v) => { const el = document.getElementById(id); if (el) el.textContent = v; };
   e('risk-var95', var95);
   e('risk-var99', var99);
-
-  // Risk/Return Scatter
   const scatterData = [
     { label: 'BTC',   x: 72, y: -20.38, r: 12, color: '#06b6d4' },
     { label: 'ETH',   x: 80, y: -14.62, r: 4,  color: '#3b82f6' },
@@ -1669,93 +1508,30 @@ function renderRiskMetrics() {
     { label: 'PORT',  x: 20.28, y: -4.42, r: 8, color: '#06b6d4' },
     { label: 'SPY',   x: 14, y: -8.67,  r: 6,  color: '#4a5568' },
   ];
-
   destroyChart('chart-risk-scatter');
   charts['chart-risk-scatter'] = new Chart(document.getElementById('chart-risk-scatter'), {
     type: 'bubble',
-    data: {
-      datasets: scatterData.map(d => ({
-        label: d.label,
-        data: [{ x: d.x, y: d.y, r: d.r }],
-        backgroundColor: d.color + '60',
-        borderColor: d.color,
-        borderWidth: 1.5
-      }))
-    },
-    options: {
-      responsive: true, maintainAspectRatio: false,
-      plugins: {
-        legend: { display: false },
-        tooltip: {
-          callbacks: {
-            label: (ctx) => ` ${ctx.dataset.label}: vol=${ctx.parsed.x.toFixed(1)}%, ret=${ctx.parsed.y.toFixed(1)}%`
-          }
-        }
-      },
-      scales: {
-        x: {
-          title: { display: true, text: 'Annualized Volatility (%)', color: '#8892a4', font: { family: 'JetBrains Mono', size: 10 } },
-          ticks: { color: '#8892a4', font: { family: 'JetBrains Mono', size: 9 } },
-          grid: { color: '#1e1e35' }
-        },
-        y: {
-          title: { display: true, text: '1Y Return (%)', color: '#8892a4', font: { family: 'JetBrains Mono', size: 10 } },
-          ticks: { color: '#8892a4', font: { family: 'JetBrains Mono', size: 9 }, callback: v => v + '%' },
-          grid: { color: '#1e1e35' }
-        }
-      }
-    }
+    data: { datasets: scatterData.map(d => ({ label: d.label, data: [{ x: d.x, y: d.y, r: d.r }], backgroundColor: d.color + '60', borderColor: d.color, borderWidth: 1.5 })) },
+    options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false }, tooltip: { callbacks: { label: (ctx) => ' ' + ctx.dataset.label + ': vol=' + ctx.parsed.x.toFixed(1) + '%, ret=' + ctx.parsed.y.toFixed(1) + '%' } } }, scales: { x: { title: { display: true, text: 'Annualized Volatility (%)', color: '#8892a4', font: { family: 'JetBrains Mono', size: 10 } }, ticks: { color: '#8892a4', font: { family: 'JetBrains Mono', size: 9 } }, grid: { color: '#1e1e35' } }, y: { title: { display: true, text: '1Y Return (%)', color: '#8892a4', font: { family: 'JetBrains Mono', size: 10 } }, ticks: { color: '#8892a4', font: { family: 'JetBrains Mono', size: 9 }, callback: v => v + '%' }, grid: { color: '#1e1e35' } } } }
   });
-
-  // Annotate scatter with labels (manual plugin)
-  // Labels are in the legend-like tooltip — acceptable
 }
 
-// ─────────────────────────────────────────────────────────────────────────────
-// SECTION 6: PERFORMANCE
-// ─────────────────────────────────────────────────────────────────────────────
 function renderPerformance() {
   const perf = analytics.performance;
-  // Downsample for performance — show every 5th point
   const step = 5;
   const labels = perf.dates.filter((_, i) => i % step === 0);
   const downsample = arr => arr.filter((_, i) => i % step === 0).map(v => ((v - 1) * 100).toFixed(2));
-
   destroyChart('chart-perf-main');
   charts['chart-perf-main'] = new Chart(document.getElementById('chart-perf-main'), {
     type: 'line',
-    data: {
-      labels,
-      datasets: [
-        { label: 'Portfolio', data: downsample(perf.portfolio), borderColor: '#06b6d4', backgroundColor: 'rgba(6,182,212,0.08)', borderWidth: 2, fill: true, tension: 0.3, pointRadius: 0 },
-        { label: 'SPY',       data: downsample(perf.spy),       borderColor: '#4a5568', backgroundColor: 'transparent',           borderWidth: 1.5, borderDash: [4,3], fill: false, tension: 0.3, pointRadius: 0 }
-      ]
-    },
+    data: { labels, datasets: [ { label: 'Portfolio', data: downsample(perf.portfolio), borderColor: '#06b6d4', backgroundColor: 'rgba(6,182,212,0.08)', borderWidth: 2, fill: true, tension: 0.3, pointRadius: 0 }, { label: 'SPY', data: downsample(perf.spy), borderColor: '#4a5568', backgroundColor: 'transparent', borderWidth: 1.5, borderDash: [4,3], fill: false, tension: 0.3, pointRadius: 0 } ] },
     options: lineOpts('%', 'Cumulative Return (%)')
   });
-
-  // Individual tickers
-  const tickerColors = {
-    BTC: '#06b6d4', ETH: '#3b82f6', NU: '#10b981', IEF: '#8b5cf6',
-    NEE: '#f59e0b', SHECY: '#ec4899', BAK: '#ef4444', TSLA: '#f97316'
-  };
-
+  const tickerColors = { BTC: '#06b6d4', ETH: '#3b82f6', NU: '#10b981', IEF: '#8b5cf6', NEE: '#f59e0b', SHECY: '#ec4899', BAK: '#ef4444', TSLA: '#f97316' };
   destroyChart('chart-perf-tickers');
   charts['chart-perf-tickers'] = new Chart(document.getElementById('chart-perf-tickers'), {
     type: 'line',
-    data: {
-      labels,
-      datasets: Object.entries(perf.tickers).map(([t, arr]) => ({
-        label: t,
-        data: downsample(arr),
-        borderColor: tickerColors[t] || '#888',
-        backgroundColor: 'transparent',
-        borderWidth: 1.5,
-        tension: 0.3,
-        pointRadius: 0,
-        fill: false
-      }))
-    },
+    data: { labels, datasets: Object.entries(perf.tickers).map(([t, arr]) => ({ label: t, data: downsample(arr), borderColor: tickerColors[t] || '#888', backgroundColor: 'transparent', borderWidth: 1.5, tension: 0.3, pointRadius: 0, fill: false })) },
     options: lineOpts('%', 'Cumulative Return (%)')
   });
 }
@@ -1766,190 +1542,82 @@ function lineOpts(suffix, yLabel) {
     interaction: { mode: 'index', intersect: false },
     plugins: {
       legend: { labels: { color: '#8892a4', font: { family: 'JetBrains Mono', size: 9 }, boxWidth: 12, padding: 12 } },
-      tooltip: {
-        backgroundColor: '#0d0d1a',
-        borderColor: '#2a2a50',
-        borderWidth: 1,
-        titleColor: '#e2e8f0',
-        bodyColor: '#8892a4',
-        titleFont: { family: 'JetBrains Mono', size: 11 },
-        bodyFont:  { family: 'JetBrains Mono', size: 10 },
-        callbacks: { label: ctx => ` ${ctx.dataset.label}: ${ctx.parsed.y}${suffix}` }
-      }
+      tooltip: { backgroundColor: '#0d0d1a', borderColor: '#2a2a50', borderWidth: 1, titleColor: '#e2e8f0', bodyColor: '#8892a4', titleFont: { family: 'JetBrains Mono', size: 11 }, bodyFont: { family: 'JetBrains Mono', size: 10 }, callbacks: { label: ctx => ' ' + ctx.dataset.label + ': ' + ctx.parsed.y + suffix } }
     },
     scales: {
-      x: {
-        ticks: { color: '#4a5568', font: { family: 'JetBrains Mono', size: 8 }, maxTicksLimit: 8, maxRotation: 0 },
-        grid: { color: '#1e1e35' }
-      },
-      y: {
-        title: { display: true, text: yLabel, color: '#8892a4', font: { family: 'JetBrains Mono', size: 9 } },
-        ticks: { color: '#8892a4', font: { family: 'JetBrains Mono', size: 9 }, callback: v => v + suffix },
-        grid: { color: '#1e1e35' }
-      }
+      x: { ticks: { color: '#4a5568', font: { family: 'JetBrains Mono', size: 8 }, maxTicksLimit: 8, maxRotation: 0 }, grid: { color: '#1e1e35' } },
+      y: { title: { display: true, text: yLabel, color: '#8892a4', font: { family: 'JetBrains Mono', size: 9 } }, ticks: { color: '#8892a4', font: { family: 'JetBrains Mono', size: 9 }, callback: v => v + suffix }, grid: { color: '#1e1e35' } }
     }
   };
 }
 
-// ─────────────────────────────────────────────────────────────────────────────
-// SECTION 7: MONTE CARLO
-// ─────────────────────────────────────────────────────────────────────────────
 function renderMonteCarlo() {
   const mc = analytics.monte_carlo;
   const totalVal = calcTotalValue();
   const step = 4;
   const labels = mc.days.filter((_, i) => i % step === 0);
   const ds = arr => arr.filter((_, i) => i % step === 0);
-
-  // Update stat cards
   const medVal = totalVal * (1 + mc.pct_50[mc.pct_50.length - 1] / 100);
   const p90Val = totalVal * (1 + mc.pct_90[mc.pct_90.length - 1] / 100);
   const e = (id, v) => { const el = document.getElementById(id); if (el) el.textContent = v; };
   e('mc-median-val', fmt$(medVal, 0));
   e('mc-median-chg', fmtPct(mc.pct_50[mc.pct_50.length-1]) + ' from today');
   e('mc-p90-val', fmt$(p90Val, 0));
-
   destroyChart('chart-mc');
   charts['chart-mc'] = new Chart(document.getElementById('chart-mc'), {
     type: 'line',
-    data: {
-      labels,
-      datasets: [
-        { label: '10th Pctile', data: ds(mc.pct_10), borderColor: '#ef4444', backgroundColor: 'rgba(239,68,68,0.04)',  borderWidth: 1.5, tension: 0.4, fill: false, pointRadius: 0 },
-        { label: '25th Pctile', data: ds(mc.pct_25), borderColor: '#f59e0b', backgroundColor: 'rgba(245,158,11,0.04)', borderWidth: 1.5, tension: 0.4, fill: false, pointRadius: 0 },
-        { label: '50th (Median)',data: ds(mc.pct_50), borderColor: '#06b6d4', backgroundColor: 'rgba(6,182,212,0.08)',  borderWidth: 2.5, tension: 0.4, fill: false, pointRadius: 0 },
-        { label: '75th Pctile', data: ds(mc.pct_75), borderColor: '#10b981', backgroundColor: 'rgba(16,185,129,0.04)', borderWidth: 1.5, tension: 0.4, fill: false, pointRadius: 0 },
-        { label: '90th Pctile', data: ds(mc.pct_90), borderColor: '#3b82f6', backgroundColor: 'rgba(59,130,246,0.06)', borderWidth: 1.5, tension: 0.4, fill: false, pointRadius: 0 },
-      ]
-    },
-    options: {
-      responsive: true, maintainAspectRatio: false,
-      interaction: { mode: 'index', intersect: false },
-      plugins: {
-        legend: { labels: { color: '#8892a4', font: { family: 'JetBrains Mono', size: 9 }, boxWidth: 12, padding: 10 } },
-        tooltip: {
-          backgroundColor: '#0d0d1a', borderColor: '#2a2a50', borderWidth: 1,
-          titleColor: '#e2e8f0', bodyColor: '#8892a4',
-          titleFont: { family: 'JetBrains Mono', size: 11 }, bodyFont: { family: 'JetBrains Mono', size: 10 },
-          callbacks: { label: ctx => ` ${ctx.dataset.label}: ${ctx.parsed.y > 0 ? '+' : ''}${ctx.parsed.y.toFixed(2)}%` }
-        }
-      },
-      scales: {
-        x: {
-          title: { display: true, text: 'Trading Days', color: '#8892a4', font: { family: 'JetBrains Mono', size: 9 } },
-          ticks: { color: '#4a5568', font: { family: 'JetBrains Mono', size: 8 }, maxTicksLimit: 8 },
-          grid: { color: '#1e1e35' }
-        },
-        y: {
-          title: { display: true, text: 'Portfolio Change (%)', color: '#8892a4', font: { family: 'JetBrains Mono', size: 9 } },
-          ticks: { color: '#8892a4', font: { family: 'JetBrains Mono', size: 9 }, callback: v => (v > 0 ? '+' : '') + v + '%' },
-          grid: { color: '#1e1e35' }
-        }
-      }
-    }
+    data: { labels, datasets: [
+      { label: '10th Pctile', data: ds(mc.pct_10), borderColor: '#ef4444', backgroundColor: 'rgba(239,68,68,0.04)',  borderWidth: 1.5, tension: 0.4, fill: false, pointRadius: 0 },
+      { label: '25th Pctile', data: ds(mc.pct_25), borderColor: '#f59e0b', backgroundColor: 'rgba(245,158,11,0.04)', borderWidth: 1.5, tension: 0.4, fill: false, pointRadius: 0 },
+      { label: '50th (Median)',data: ds(mc.pct_50), borderColor: '#06b6d4', backgroundColor: 'rgba(6,182,212,0.08)',  borderWidth: 2.5, tension: 0.4, fill: false, pointRadius: 0 },
+      { label: '75th Pctile', data: ds(mc.pct_75), borderColor: '#10b981', backgroundColor: 'rgba(16,185,129,0.04)', borderWidth: 1.5, tension: 0.4, fill: false, pointRadius: 0 },
+      { label: '90th Pctile', data: ds(mc.pct_90), borderColor: '#3b82f6', backgroundColor: 'rgba(59,130,246,0.06)', borderWidth: 1.5, tension: 0.4, fill: false, pointRadius: 0 },
+    ] },
+    options: { responsive: true, maintainAspectRatio: false, interaction: { mode: 'index', intersect: false }, plugins: { legend: { labels: { color: '#8892a4', font: { family: 'JetBrains Mono', size: 9 }, boxWidth: 12, padding: 10 } }, tooltip: { backgroundColor: '#0d0d1a', borderColor: '#2a2a50', borderWidth: 1, titleColor: '#e2e8f0', bodyColor: '#8892a4', titleFont: { family: 'JetBrains Mono', size: 11 }, bodyFont: { family: 'JetBrains Mono', size: 10 }, callbacks: { label: ctx => ' ' + ctx.dataset.label + ': ' + (ctx.parsed.y > 0 ? '+' : '') + ctx.parsed.y.toFixed(2) + '%' } } }, scales: { x: { title: { display: true, text: 'Trading Days', color: '#8892a4', font: { family: 'JetBrains Mono', size: 9 } }, ticks: { color: '#4a5568', font: { family: 'JetBrains Mono', size: 8 }, maxTicksLimit: 8 }, grid: { color: '#1e1e35' } }, y: { title: { display: true, text: 'Portfolio Change (%)', color: '#8892a4', font: { family: 'JetBrains Mono', size: 9 } }, ticks: { color: '#8892a4', font: { family: 'JetBrains Mono', size: 9 }, callback: v => (v > 0 ? '+' : '') + v + '%' }, grid: { color: '#1e1e35' } } } }
   });
 }
 
-// ─────────────────────────────────────────────────────────────────────────────
-// SECTION 8: STRESS TESTS (recalculated from live)
-// ─────────────────────────────────────────────────────────────────────────────
 function renderStressTests() {
   const totalVal = calcTotalValue();
   const btcVal   = getLiveValue('BTC');
   const latamVal = getLiveValue('NU') + getLiveValue('BAK');
   const techVal  = getLiveValue('TSLA') + getLiveValue('NU') + getLiveValue('BTC') * 0.5;
   const ieVal    = getLiveValue('IEF');
-
   const scenarios = [
-    { name: 'BTC −30%',        desc: 'Bitcoin drops 30%',                newVal: totalVal - btcVal * 0.30,            icon: '₿' },
-    { name: 'Rates +100bps',   desc: 'Interest rates rise 100bps',        newVal: totalVal - ieVal * 0.07,              icon: '↑' },
-    { name: 'LatAm Crisis',    desc: 'Latin America selloff (NU, BAK −25%)', newVal: totalVal - latamVal * 0.25,        icon: '🌎' },
-    { name: 'Tech Crash −25%', desc: 'Technology sector drops 25%',       newVal: totalVal - getLiveValue('TSLA')*0.25, icon: '💻' },
-    { name: 'Global Selloff',  desc: 'All risk assets −20%',              newVal: totalVal * 0.78 + CASH_VALUE * 0.22, icon: '📉' },
-    { name: 'BTC +50%',        desc: 'Bitcoin rallies 50%',              newVal: totalVal + btcVal * 0.50,             icon: '🚀' },
+    { name: 'BTC -30%',        desc: 'Bitcoin drops 30%',                   newVal: totalVal - btcVal * 0.30,                icon: 'B' },
+    { name: 'Rates +100bps',   desc: 'Interest rates rise 100bps',           newVal: totalVal - ieVal * 0.07,                 icon: 'R' },
+    { name: 'LatAm Crisis',    desc: 'Latin America selloff (NU, BAK -25%)', newVal: totalVal - latamVal * 0.25,              icon: 'L' },
+    { name: 'Tech Crash -25%', desc: 'Technology sector drops 25%',          newVal: totalVal - getLiveValue('TSLA')*0.25,    icon: 'T' },
+    { name: 'Global Selloff',  desc: 'All risk assets -20%',                 newVal: totalVal * 0.78 + CASH_VALUE * 0.22,    icon: 'G' },
+    { name: 'BTC +50%',        desc: 'Bitcoin rallies 50%',                  newVal: totalVal + btcVal * 0.50,                icon: 'X' },
   ];
-
   const grid = document.getElementById('stress-grid');
   if (!grid) return;
-
   grid.innerHTML = scenarios.map(s => {
     const chg = ((s.newVal - totalVal) / totalVal * 100);
     const chgVal = s.newVal - totalVal;
     const isPos = chg >= 0;
-    return `<div class="stress-card">
-      <div>
-        <div style="font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:1px;color:var(--text-primary);margin-bottom:4px">${s.name}</div>
-        <div style="font-family:var(--mono);font-size:10px;color:var(--text-muted)">${s.desc}</div>
-        <div style="font-family:var(--mono);font-size:11px;color:var(--text-secondary);margin-top:6px">New value: ${fmt$(s.newVal, 0)}</div>
-      </div>
-      <div style="text-align:right">
-        <div class="stress-change ${isPos ? 'pos' : 'neg'}">${fmtPct(chg)}</div>
-        <div style="font-family:var(--mono);font-size:11px;color:${isPos?'var(--accent-green)':'var(--accent-red)'}">
-          ${isPos ? '+' : ''}${fmt$(chgVal, 0)}
-        </div>
-      </div>
-    </div>`;
+    return '<div class="stress-card"><div><div style="font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:1px;color:var(--text-primary);margin-bottom:4px">' + s.name + '</div><div style="font-family:var(--mono);font-size:10px;color:var(--text-muted)">' + s.desc + '</div><div style="font-family:var(--mono);font-size:11px;color:var(--text-secondary);margin-top:6px">New value: ' + fmt$(s.newVal, 0) + '</div></div><div style="text-align:right"><div class="stress-change ' + (isPos ? 'pos' : 'neg') + '">' + fmtPct(chg) + '</div><div style="font-family:var(--mono);font-size:11px;color:' + (isPos?'var(--accent-green)':'var(--accent-red)') + '">' + (isPos ? '+' : '') + fmt$(chgVal, 0) + '</div></div></div>';
   }).join('');
 }
 
-// ─────────────────────────────────────────────────────────────────────────────
-// SECTION 9: FUNDAMENTALS
-// ─────────────────────────────────────────────────────────────────────────────
 let fundChart = null;
 function renderFundamentals() {
   const ticker = document.getElementById('fund-ticker-select')?.value || 'NU';
   const metric = document.getElementById('fund-metric-select')?.value || 'revenue';
   const fd = analytics.fundamentals_data.tickers[ticker];
   if (!fd) return;
-
-  const metricLabels = {
-    revenue: 'Revenue ($M)', net_income: 'Net Income ($M)', net_margin: 'Net Margin (%)',
-    fcf: 'Free Cash Flow ($M)', total_debt: 'Total Debt ($M)', equity: 'Equity ($M)'
-  };
-  const metricColors = {
-    revenue: '#06b6d4', net_income: '#10b981', net_margin: '#3b82f6',
-    fcf: '#8b5cf6', total_debt: '#ef4444', equity: '#f59e0b'
-  };
-
+  const metricLabels = { revenue: 'Revenue ($M)', net_income: 'Net Income ($M)', net_margin: 'Net Margin (%)', fcf: 'Free Cash Flow ($M)', total_debt: 'Total Debt ($M)', equity: 'Equity ($M)' };
+  const metricColors = { revenue: '#06b6d4', net_income: '#10b981', net_margin: '#3b82f6', fcf: '#8b5cf6', total_debt: '#ef4444', equity: '#f59e0b' };
   const titleEl = document.getElementById('fund-chart-title');
   const tickerNames = { NU: 'Nu Holdings', NEE: 'NextEra Energy', SHECY: 'Shin-Etsu Chemical', BAK: 'Braskem', TSLA: 'Tesla' };
-  if (titleEl) titleEl.textContent = `${metricLabels[metric]} — ${tickerNames[ticker]}`;
-
+  if (titleEl) titleEl.textContent = metricLabels[metric] + ' - ' + tickerNames[ticker];
   destroyChart('chart-fundamentals');
   charts['chart-fundamentals'] = new Chart(document.getElementById('chart-fundamentals'), {
     type: metric === 'net_margin' ? 'line' : 'bar',
-    data: {
-      labels: fd.quarters,
-      datasets: [{
-        label: metricLabels[metric],
-        data: fd[metric],
-        backgroundColor: metricColors[metric] + '40',
-        borderColor: metricColors[metric],
-        borderWidth: 2,
-        borderRadius: 3,
-        fill: metric === 'net_margin',
-        tension: 0.3
-      }]
-    },
-    options: {
-      responsive: true, maintainAspectRatio: false,
-      plugins: {
-        legend: { display: false },
-        tooltip: {
-          backgroundColor: '#0d0d1a', borderColor: '#2a2a50', borderWidth: 1,
-          titleFont: { family: 'JetBrains Mono', size: 11 }, bodyFont: { family: 'JetBrains Mono', size: 10 },
-          titleColor: '#e2e8f0', bodyColor: '#8892a4',
-          callbacks: { label: ctx => ` ${ctx.parsed.y.toFixed(1)}${metric === 'net_margin' ? '%' : 'M'}` }
-        }
-      },
-      scales: {
-        x: { ticks: { color: '#8892a4', font: { family: 'JetBrains Mono', size: 9 } }, grid: { color: '#1e1e35' } },
-        y: { ticks: { color: '#8892a4', font: { family: 'JetBrains Mono', size: 9 } }, grid: { color: '#1e1e35' } }
-      }
-    }
+    data: { labels: fd.quarters, datasets: [{ label: metricLabels[metric], data: fd[metric], backgroundColor: metricColors[metric] + '40', borderColor: metricColors[metric], borderWidth: 2, borderRadius: 3, fill: metric === 'net_margin', tension: 0.3 }] },
+    options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false }, tooltip: { backgroundColor: '#0d0d1a', borderColor: '#2a2a50', borderWidth: 1, titleFont: { family: 'JetBrains Mono', size: 11 }, bodyFont: { family: 'JetBrains Mono', size: 10 }, titleColor: '#e2e8f0', bodyColor: '#8892a4', callbacks: { label: ctx => ' ' + ctx.parsed.y.toFixed(1) + (metric === 'net_margin' ? '%' : 'M') } } }, scales: { x: { ticks: { color: '#8892a4', font: { family: 'JetBrains Mono', size: 9 } }, grid: { color: '#1e1e35' } }, y: { ticks: { color: '#8892a4', font: { family: 'JetBrains Mono', size: 9 } }, grid: { color: '#1e1e35' } } } }
   });
-
-  // Key ratios
   const ratiosEl = document.getElementById('fund-ratios-body');
   if (!ratiosEl) return;
   const pe = analytics.fundamentals_data.pe_ratios;
@@ -1957,29 +1625,18 @@ function renderFundamentals() {
   const yr = analytics.returns_1y;
   const liveQ = getLivePrice(ticker);
   const liveP = liveQ ? liveQ.price : null;
-
   const rows = [
-    { k: 'P/E Ratio',      v: pe[ticker] ? (pe[ticker] < 0 ? 'N/A (neg. earnings)' : pe[ticker].toFixed(1) + 'x') : '—' },
-    { k: 'Div. Yield',     v: dy[ticker] ? dy[ticker].toFixed(2) + '%' : '0.00% (none)' },
-    { k: '1Y Return',      v: yr[ticker] !== undefined ? fmtPct(yr[ticker]) : '—' },
-    { k: 'Live Price',     v: liveP ? '$' + liveP.toFixed(2) : '—' },
-    { k: 'Daily Change',   v: liveQ ? fmtPct(liveQ.changePercent) + ` (${liveQ.change >= 0 ? '+' : ''}$${liveQ.change.toFixed(2)})` : '—' },
+    { k: 'P/E Ratio',    v: pe[ticker] ? (pe[ticker] < 0 ? 'N/A (neg. earnings)' : pe[ticker].toFixed(1) + 'x') : '-' },
+    { k: 'Div. Yield',   v: dy[ticker] ? dy[ticker].toFixed(2) + '%' : '0.00% (none)' },
+    { k: '1Y Return',    v: yr[ticker] !== undefined ? fmtPct(yr[ticker]) : '-' },
+    { k: 'Live Price',   v: liveP ? '$' + liveP.toFixed(2) : '-' },
+    { k: 'Daily Change', v: liveQ ? fmtPct(liveQ.changePercent) + ' ($' + (liveQ.change >= 0 ? '+' : '') + liveQ.change.toFixed(2) + ')' : '-' },
   ];
-
-  ratiosEl.innerHTML = rows.map(r => `
-    <div class="metric-row">
-      <span class="metric-name">${r.k}</span>
-      <span class="metric-val">${r.v}</span>
-    </div>`).join('');
+  ratiosEl.innerHTML = rows.map(r => '<div class="metric-row"><span class="metric-name">' + r.k + '</span><span class="metric-val">' + r.v + '</span></div>').join('');
 }
 
-// ─────────────────────────────────────────────────────────────────────────────
-// SECTION 10: YIELD CURVE
-// ─────────────────────────────────────────────────────────────────────────────
 function renderYieldCurve() {
   const snapshots = analytics.yield_curve.snapshots;
-
-  // Populate select
   const sel = document.getElementById('yield-snapshot-select');
   if (sel && sel.options.length === 0) {
     snapshots.forEach((s, i) => {
@@ -1990,111 +1647,31 @@ function renderYieldCurve() {
     });
     sel.value = snapshots.length - 1;
   }
-
   const idx = parseInt(sel?.value || snapshots.length - 1);
   const snap = snapshots[idx];
-
   destroyChart('chart-yield');
   charts['chart-yield'] = new Chart(document.getElementById('chart-yield'), {
     type: 'line',
-    data: {
-      labels: snap.maturities,
-      datasets: [{
-        label: snap.date,
-        data: snap.yields,
-        borderColor: '#06b6d4',
-        backgroundColor: 'rgba(6,182,212,0.08)',
-        borderWidth: 2.5,
-        fill: true,
-        tension: 0.4,
-        pointBackgroundColor: '#06b6d4',
-        pointRadius: 4
-      }]
-    },
-    options: {
-      responsive: true, maintainAspectRatio: false,
-      plugins: {
-        legend: { labels: { color: '#8892a4', font: { family: 'JetBrains Mono', size: 10 } } },
-        tooltip: {
-          backgroundColor: '#0d0d1a', borderColor: '#2a2a50', borderWidth: 1,
-          titleFont: { family: 'JetBrains Mono', size: 11 }, bodyFont: { family: 'JetBrains Mono', size: 10 },
-          titleColor: '#e2e8f0', bodyColor: '#8892a4',
-          callbacks: { label: ctx => ` ${ctx.parsed.y.toFixed(2)}%` }
-        }
-      },
-      scales: {
-        x: { ticks: { color: '#8892a4', font: { family: 'JetBrains Mono', size: 9 } }, grid: { color: '#1e1e35' } },
-        y: {
-          title: { display: true, text: 'Yield (%)', color: '#8892a4', font: { family: 'JetBrains Mono', size: 9 } },
-          ticks: { color: '#8892a4', font: { family: 'JetBrains Mono', size: 9 }, callback: v => v + '%' },
-          grid: { color: '#1e1e35' }
-        }
-      }
-    }
+    data: { labels: snap.maturities, datasets: [{ label: snap.date, data: snap.yields, borderColor: '#06b6d4', backgroundColor: 'rgba(6,182,212,0.08)', borderWidth: 2.5, fill: true, tension: 0.4, pointBackgroundColor: '#06b6d4', pointRadius: 4 }] },
+    options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { labels: { color: '#8892a4', font: { family: 'JetBrains Mono', size: 10 } } }, tooltip: { backgroundColor: '#0d0d1a', borderColor: '#2a2a50', borderWidth: 1, titleFont: { family: 'JetBrains Mono', size: 11 }, bodyFont: { family: 'JetBrains Mono', size: 10 }, titleColor: '#e2e8f0', bodyColor: '#8892a4', callbacks: { label: ctx => ' ' + ctx.parsed.y.toFixed(2) + '%' } } }, scales: { x: { ticks: { color: '#8892a4', font: { family: 'JetBrains Mono', size: 9 } }, grid: { color: '#1e1e35' } }, y: { title: { display: true, text: 'Yield (%)', color: '#8892a4', font: { family: 'JetBrains Mono', size: 9 } }, ticks: { color: '#8892a4', font: { family: 'JetBrains Mono', size: 9 }, callback: v => v + '%' }, grid: { color: '#1e1e35' } } } }
   });
-
-  // All snapshots overlay
   const snapColors = ['#4a5568','#6b7280','#8b5cf6','#3b82f6','#06b6d4'];
   destroyChart('chart-yield-all');
   charts['chart-yield-all'] = new Chart(document.getElementById('chart-yield-all'), {
     type: 'line',
-    data: {
-      labels: snapshots[0].maturities,
-      datasets: snapshots.map((s, i) => ({
-        label: s.date,
-        data: s.yields,
-        borderColor: snapColors[i] || '#888',
-        backgroundColor: 'transparent',
-        borderWidth: i === snapshots.length - 1 ? 2.5 : 1.5,
-        borderDash: i === snapshots.length - 1 ? [] : [4, 3],
-        tension: 0.4,
-        fill: false,
-        pointRadius: 3
-      }))
-    },
-    options: {
-      responsive: true, maintainAspectRatio: false,
-      plugins: {
-        legend: { labels: { color: '#8892a4', font: { family: 'JetBrains Mono', size: 9 }, boxWidth: 20, padding: 10 } },
-        tooltip: {
-          backgroundColor: '#0d0d1a', borderColor: '#2a2a50', borderWidth: 1,
-          titleFont: { family: 'JetBrains Mono', size: 11 }, bodyFont: { family: 'JetBrains Mono', size: 10 },
-          titleColor: '#e2e8f0', bodyColor: '#8892a4',
-          callbacks: { label: ctx => ` ${ctx.dataset.label}: ${ctx.parsed.y.toFixed(2)}%` }
-        }
-      },
-      scales: {
-        x: { ticks: { color: '#8892a4', font: { family: 'JetBrains Mono', size: 9 } }, grid: { color: '#1e1e35' } },
-        y: {
-          title: { display: true, text: 'Yield (%)', color: '#8892a4', font: { family: 'JetBrains Mono', size: 9 } },
-          ticks: { color: '#8892a4', font: { family: 'JetBrains Mono', size: 9 }, callback: v => v + '%' },
-          grid: { color: '#1e1e35' }
-        }
-      }
-    }
+    data: { labels: snapshots[0].maturities, datasets: snapshots.map((s, i) => ({ label: s.date, data: s.yields, borderColor: snapColors[i] || '#888', backgroundColor: 'transparent', borderWidth: i === snapshots.length - 1 ? 2.5 : 1.5, borderDash: i === snapshots.length - 1 ? [] : [4, 3], tension: 0.4, fill: false, pointRadius: 3 })) },
+    options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { labels: { color: '#8892a4', font: { family: 'JetBrains Mono', size: 9 }, boxWidth: 20, padding: 10 } }, tooltip: { backgroundColor: '#0d0d1a', borderColor: '#2a2a50', borderWidth: 1, titleFont: { family: 'JetBrains Mono', size: 11 }, bodyFont: { family: 'JetBrains Mono', size: 10 }, titleColor: '#e2e8f0', bodyColor: '#8892a4', callbacks: { label: ctx => ' ' + ctx.dataset.label + ': ' + ctx.parsed.y.toFixed(2) + '%' } } }, scales: { x: { ticks: { color: '#8892a4', font: { family: 'JetBrains Mono', size: 9 } }, grid: { color: '#1e1e35' } }, y: { title: { display: true, text: 'Yield (%)', color: '#8892a4', font: { family: 'JetBrains Mono', size: 9 } }, ticks: { color: '#8892a4', font: { family: 'JetBrains Mono', size: 9 }, callback: v => v + '%' }, grid: { color: '#1e1e35' } } } }
   });
 }
 
-// ─────────────────────────────────────────────────────────────────────────────
-// SECTION 11: REBALANCING
-// ─────────────────────────────────────────────────────────────────────────────
 function renderRebalancing() {
   const totalVal = calcTotalValue();
   const rb = analytics.rebalancing;
   const tickers = rb.tickers;
-
-  // Recalculate live weights
-  const liveWeights = tickers.map(t => {
-    const val = getLiveValue(t);
-    return (val / totalVal * 100);
-  });
-
-  // Count trades needed (where abs diff > 2%)
+  const liveWeights = tickers.map(t => { const val = getLiveValue(t); return (val / totalVal * 100); });
   const tradesNeeded = tickers.filter((t, i) => Math.abs(liveWeights[i] - rb.erc_target[i]) > 2).length;
   const el = document.getElementById('rebal-trades');
   if (el) el.textContent = tradesNeeded;
-
-  // Rows
   const rowsEl = document.getElementById('rebal-rows');
   if (rowsEl) {
     rowsEl.innerHTML = tickers.map((t, i) => {
@@ -2103,83 +1680,20 @@ function renderRebalancing() {
       const dt = rb.div_target[i];
       const diff = cw - et;
       const diffClass = Math.abs(diff) < 1 ? 'neu' : diff > 0 ? 'neg' : 'pos';
-      return `<div class="rebal-row">
-        <div>
-          <span class="ticker-badge ${['BTC','ETH'].includes(t)?'crypto':''}" style="font-size:10px">${t}</span>
-          <div style="font-family:var(--mono);font-size:9px;color:var(--text-muted);margin-top:3px">
-            <span class="${diffClass}">${diff >= 0 ? '+' : ''}${diff.toFixed(1)}pp</span> vs ERC
-          </div>
-        </div>
-        <div class="rebal-bars">
-          <div class="rebal-bar-row">
-            <span style="width:35px;text-align:right">${cw.toFixed(1)}%</span>
-            <div class="rebal-bar-track"><div class="rebal-bar-fill bar-current" style="width:${Math.min(cw*2,100)}%"></div></div>
-            <span style="width:22px;color:var(--accent-blue);font-size:8px">NOW</span>
-          </div>
-          <div class="rebal-bar-row">
-            <span style="width:35px;text-align:right">${et.toFixed(1)}%</span>
-            <div class="rebal-bar-track"><div class="rebal-bar-fill bar-erc" style="width:${Math.min(et*2,100)}%"></div></div>
-            <span style="width:22px;color:var(--accent-green);font-size:8px">ERC</span>
-          </div>
-          <div class="rebal-bar-row">
-            <span style="width:35px;text-align:right">${dt.toFixed(1)}%</span>
-            <div class="rebal-bar-track"><div class="rebal-bar-fill bar-div" style="width:${Math.min(dt*2,100)}%"></div></div>
-            <span style="width:22px;color:var(--accent-orange);font-size:8px">DIV</span>
-          </div>
-        </div>
-        <div style="font-family:var(--mono);font-size:10px;text-align:right;color:var(--text-secondary)">
-          ${fmt$(liveWeights[i]/100 * totalVal, 0)}
-        </div>
-        <div style="font-family:var(--mono);font-size:10px;text-align:right;color:var(--text-muted)">
-          Target: ${fmt$(et/100 * totalVal, 0)}
-        </div>
-      </div>`;
+      return '<div class="rebal-row"><div><span class="ticker-badge ' + (['BTC','ETH'].includes(t)?'crypto':'') + '" style="font-size:10px">' + t + '</span><div style="font-family:var(--mono);font-size:9px;color:var(--text-muted);margin-top:3px"><span class="' + diffClass + '">' + (diff >= 0 ? '+' : '') + diff.toFixed(1) + 'pp</span> vs ERC</div></div><div class="rebal-bars"><div class="rebal-bar-row"><span style="width:35px;text-align:right">' + cw.toFixed(1) + '%</span><div class="rebal-bar-track"><div class="rebal-bar-fill bar-current" style="width:' + Math.min(cw*2,100) + '%"></div></div><span style="width:22px;color:var(--accent-blue);font-size:8px">NOW</span></div><div class="rebal-bar-row"><span style="width:35px;text-align:right">' + et.toFixed(1) + '%</span><div class="rebal-bar-track"><div class="rebal-bar-fill bar-erc" style="width:' + Math.min(et*2,100) + '%"></div></div><span style="width:22px;color:var(--accent-green);font-size:8px">ERC</span></div><div class="rebal-bar-row"><span style="width:35px;text-align:right">' + dt.toFixed(1) + '%</span><div class="rebal-bar-track"><div class="rebal-bar-fill bar-div" style="width:' + Math.min(dt*2,100) + '%"></div></div><span style="width:22px;color:var(--accent-orange);font-size:8px">DIV</span></div></div><div style="font-family:var(--mono);font-size:10px;text-align:right;color:var(--text-secondary)">' + fmt$(liveWeights[i]/100 * totalVal, 0) + '</div><div style="font-family:var(--mono);font-size:10px;text-align:right;color:var(--text-muted)">Target: ' + fmt$(et/100 * totalVal, 0) + '</div></div>';
     }).join('');
   }
-
-  // Chart
   destroyChart('chart-rebal');
   charts['chart-rebal'] = new Chart(document.getElementById('chart-rebal'), {
     type: 'bar',
-    data: {
-      labels: tickers,
-      datasets: [
-        { label: 'Current', data: liveWeights.map(v => v.toFixed(1)), backgroundColor: 'rgba(59,130,246,0.5)', borderColor: '#3b82f6', borderWidth: 1.5, borderRadius: 3 },
-        { label: 'ERC Target', data: rb.erc_target, backgroundColor: 'rgba(16,185,129,0.5)', borderColor: '#10b981', borderWidth: 1.5, borderRadius: 3 },
-        { label: 'Div Target', data: rb.div_target, backgroundColor: 'rgba(245,158,11,0.5)', borderColor: '#f59e0b', borderWidth: 1.5, borderRadius: 3 },
-      ]
-    },
-    options: {
-      responsive: true, maintainAspectRatio: false,
-      plugins: {
-        legend: { labels: { color: '#8892a4', font: { family: 'JetBrains Mono', size: 9 }, boxWidth: 12, padding: 10 } },
-        tooltip: {
-          backgroundColor: '#0d0d1a', borderColor: '#2a2a50', borderWidth: 1,
-          titleFont: { family: 'JetBrains Mono', size: 11 }, bodyFont: { family: 'JetBrains Mono', size: 10 },
-          titleColor: '#e2e8f0', bodyColor: '#8892a4',
-          callbacks: { label: ctx => ` ${ctx.dataset.label}: ${ctx.parsed.y}%` }
-        }
-      },
-      scales: {
-        x: { ticks: { color: '#8892a4', font: { family: 'JetBrains Mono', size: 9 } }, grid: { color: '#1e1e35' } },
-        y: {
-          title: { display: true, text: 'Weight (%)', color: '#8892a4', font: { family: 'JetBrains Mono', size: 9 } },
-          ticks: { color: '#8892a4', font: { family: 'JetBrains Mono', size: 9 }, callback: v => v + '%' },
-          grid: { color: '#1e1e35' }
-        }
-      }
-    }
+    data: { labels: tickers, datasets: [ { label: 'Current', data: liveWeights.map(v => v.toFixed(1)), backgroundColor: 'rgba(59,130,246,0.5)', borderColor: '#3b82f6', borderWidth: 1.5, borderRadius: 3 }, { label: 'ERC Target', data: rb.erc_target, backgroundColor: 'rgba(16,185,129,0.5)', borderColor: '#10b981', borderWidth: 1.5, borderRadius: 3 }, { label: 'Div Target', data: rb.div_target, backgroundColor: 'rgba(245,158,11,0.5)', borderColor: '#f59e0b', borderWidth: 1.5, borderRadius: 3 } ] },
+    options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { labels: { color: '#8892a4', font: { family: 'JetBrains Mono', size: 9 }, boxWidth: 12, padding: 10 } }, tooltip: { backgroundColor: '#0d0d1a', borderColor: '#2a2a50', borderWidth: 1, titleFont: { family: 'JetBrains Mono', size: 11 }, bodyFont: { family: 'JetBrains Mono', size: 10 }, titleColor: '#e2e8f0', bodyColor: '#8892a4', callbacks: { label: ctx => ' ' + ctx.dataset.label + ': ' + ctx.parsed.y + '%' } } }, scales: { x: { ticks: { color: '#8892a4', font: { family: 'JetBrains Mono', size: 9 } }, grid: { color: '#1e1e35' } }, y: { title: { display: true, text: 'Weight (%)', color: '#8892a4', font: { family: 'JetBrains Mono', size: 9 } }, ticks: { color: '#8892a4', font: { family: 'JetBrains Mono', size: 9 }, callback: v => v + '%' }, grid: { color: '#1e1e35' } } } }
   });
 }
 
-// ─────────────────────────────────────────────────────────────────────────────
-// SECTION 12: INCOME
-// ─────────────────────────────────────────────────────────────────────────────
 function renderIncome() {
   const totalVal = calcTotalValue();
   const inc = analytics.income;
-
-  // Recalculate based on live prices
   const liveBreakdown = inc.breakdown.map(item => {
     const q = getLivePrice(item.ticker);
     const livePrice = q ? q.price : (analytics.portfolio.holdings[item.ticker]?.price || 0);
@@ -2188,104 +1702,35 @@ function renderIncome() {
     const liveYield = (item.div_per_share / livePrice * 100);
     return { ...item, livePrice, liveAnnual, liveYield: liveYield.toFixed(2) };
   });
-
   const totalAnnual = liveBreakdown.reduce((a, b) => a + b.liveAnnual, 0);
   const portfolioYield = (totalAnnual / totalVal * 100).toFixed(3);
   const monthly = (totalAnnual / 12).toFixed(0);
-
   const e = (id, v) => { const el = document.getElementById(id); if (el) el.textContent = v; };
   e('income-total', fmt$(totalAnnual, 0));
   e('income-yield', portfolioYield + '%');
   e('income-yield-sub', 'On total portfolio (' + fmt$(totalVal, 0) + ')');
   e('income-monthly', fmt$(monthly, 0));
-
-  // Table
   const tableEl = document.getElementById('income-breakdown-table');
   if (tableEl) {
-    tableEl.innerHTML = `
-      <div style="display:grid;grid-template-columns:80px 1fr 80px 80px 80px 80px;gap:0;font-family:var(--mono);font-size:10px">
-        <div style="padding:8px 0;border-bottom:1px solid var(--border);color:var(--text-muted);font-size:9px;letter-spacing:1px">TICKER</div>
-        <div style="padding:8px 0;border-bottom:1px solid var(--border);color:var(--text-muted);font-size:9px;letter-spacing:1px">NAME</div>
-        <div style="padding:8px 0;border-bottom:1px solid var(--border);color:var(--text-muted);font-size:9px;letter-spacing:1px;text-align:right">SHARES</div>
-        <div style="padding:8px 0;border-bottom:1px solid var(--border);color:var(--text-muted);font-size:9px;letter-spacing:1px;text-align:right">DIV/SHR</div>
-        <div style="padding:8px 0;border-bottom:1px solid var(--border);color:var(--text-muted);font-size:9px;letter-spacing:1px;text-align:right">ANNUAL</div>
-        <div style="padding:8px 0;border-bottom:1px solid var(--border);color:var(--text-muted);font-size:9px;letter-spacing:1px;text-align:right">YIELD</div>
-        ${liveBreakdown.map(b => `
-        <div style="padding:9px 0;border-bottom:1px solid var(--border)"><span class="ticker-badge">${b.ticker}</span></div>
-        <div style="padding:9px 0;border-bottom:1px solid var(--border);color:var(--text-secondary)">${b.name}</div>
-        <div style="padding:9px 0;border-bottom:1px solid var(--border);text-align:right">${b.shares}</div>
-        <div style="padding:9px 0;border-bottom:1px solid var(--border);text-align:right">$${b.div_per_share.toFixed(3)}</div>
-        <div style="padding:9px 0;border-bottom:1px solid var(--border);text-align:right;color:var(--accent-green)">${fmt$(b.liveAnnual, 0)}</div>
-        <div style="padding:9px 0;border-bottom:1px solid var(--border);text-align:right">${b.liveYield}%</div>`).join('')}
-        <div style="padding:9px 0;grid-column:1/5;font-weight:600;color:var(--text-muted);font-size:9px;letter-spacing:1px">TOTAL</div>
-        <div style="padding:9px 0;text-align:right;font-weight:600;color:var(--accent-green)">${fmt$(totalAnnual, 0)}</div>
-        <div style="padding:9px 0;text-align:right;font-weight:600">${portfolioYield}%</div>
-      </div>`;
+    tableEl.innerHTML = '<div style="display:grid;grid-template-columns:80px 1fr 80px 80px 80px 80px;gap:0;font-family:var(--mono);font-size:10px"><div style="padding:8px 0;border-bottom:1px solid var(--border);color:var(--text-muted);font-size:9px;letter-spacing:1px">TICKER</div><div style="padding:8px 0;border-bottom:1px solid var(--border);color:var(--text-muted);font-size:9px;letter-spacing:1px">NAME</div><div style="padding:8px 0;border-bottom:1px solid var(--border);color:var(--text-muted);font-size:9px;letter-spacing:1px;text-align:right">SHARES</div><div style="padding:8px 0;border-bottom:1px solid var(--border);color:var(--text-muted);font-size:9px;letter-spacing:1px;text-align:right">DIV/SHR</div><div style="padding:8px 0;border-bottom:1px solid var(--border);color:var(--text-muted);font-size:9px;letter-spacing:1px;text-align:right">ANNUAL</div><div style="padding:8px 0;border-bottom:1px solid var(--border);color:var(--text-muted);font-size:9px;letter-spacing:1px;text-align:right">YIELD</div>' + liveBreakdown.map(b => '<div style="padding:9px 0;border-bottom:1px solid var(--border)"><span class="ticker-badge">' + b.ticker + '</span></div><div style="padding:9px 0;border-bottom:1px solid var(--border);color:var(--text-secondary)">' + b.name + '</div><div style="padding:9px 0;border-bottom:1px solid var(--border);text-align:right">' + b.shares + '</div><div style="padding:9px 0;border-bottom:1px solid var(--border);text-align:right">$' + b.div_per_share.toFixed(3) + '</div><div style="padding:9px 0;border-bottom:1px solid var(--border);text-align:right;color:var(--accent-green)">' + fmt$(b.liveAnnual, 0) + '</div><div style="padding:9px 0;border-bottom:1px solid var(--border);text-align:right">' + b.liveYield + '%</div>').join('') + '<div style="padding:9px 0;grid-column:1/5;font-weight:600;color:var(--text-muted);font-size:9px;letter-spacing:1px">TOTAL</div><div style="padding:9px 0;text-align:right;font-weight:600;color:var(--accent-green)">' + fmt$(totalAnnual, 0) + '</div><div style="padding:9px 0;text-align:right;font-weight:600">' + portfolioYield + '%</div></div>';
   }
-
-  // Income chart
   destroyChart('chart-income');
   charts['chart-income'] = new Chart(document.getElementById('chart-income'), {
     type: 'bar',
-    data: {
-      labels: liveBreakdown.map(b => b.ticker),
-      datasets: [
-        { label: 'Annual Income ($)', data: liveBreakdown.map(b => b.liveAnnual.toFixed(0)), backgroundColor: ['#8b5cf660','#10b98160','#06b6d460'], borderColor: ['#8b5cf6','#10b981','#06b6d4'], borderWidth: 2, borderRadius: 4 }
-      ]
-    },
-    options: {
-      responsive: true, maintainAspectRatio: false,
-      plugins: {
-        legend: { display: false },
-        tooltip: {
-          backgroundColor: '#0d0d1a', borderColor: '#2a2a50', borderWidth: 1,
-          titleFont: { family: 'JetBrains Mono', size: 11 }, bodyFont: { family: 'JetBrains Mono', size: 10 },
-          titleColor: '#e2e8f0', bodyColor: '#8892a4',
-          callbacks: { label: ctx => ` $${ctx.parsed.y} annual income` }
-        }
-      },
-      scales: {
-        x: { ticks: { color: '#8892a4', font: { family: 'JetBrains Mono', size: 10, weight: '600' } }, grid: { color: '#1e1e35' } },
-        y: {
-          title: { display: true, text: 'Annual Income ($)', color: '#8892a4', font: { family: 'JetBrains Mono', size: 9 } },
-          ticks: { color: '#8892a4', font: { family: 'JetBrains Mono', size: 9 }, callback: v => '$' + v },
-          grid: { color: '#1e1e35' }
-        }
-      }
-    }
+    data: { labels: liveBreakdown.map(b => b.ticker), datasets: [{ label: 'Annual Income ($)', data: liveBreakdown.map(b => b.liveAnnual.toFixed(0)), backgroundColor: ['#8b5cf660','#10b98160','#06b6d460'], borderColor: ['#8b5cf6','#10b981','#06b6d4'], borderWidth: 2, borderRadius: 4 }] },
+    options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false }, tooltip: { backgroundColor: '#0d0d1a', borderColor: '#2a2a50', borderWidth: 1, titleFont: { family: 'JetBrains Mono', size: 11 }, bodyFont: { family: 'JetBrains Mono', size: 10 }, titleColor: '#e2e8f0', bodyColor: '#8892a4', callbacks: { label: ctx => ' $' + ctx.parsed.y + ' annual income' } } }, scales: { x: { ticks: { color: '#8892a4', font: { family: 'JetBrains Mono', size: 10, weight: '600' } }, grid: { color: '#1e1e35' } }, y: { title: { display: true, text: 'Annual Income ($)', color: '#8892a4', font: { family: 'JetBrains Mono', size: 9 } }, ticks: { color: '#8892a4', font: { family: 'JetBrains Mono', size: 9 }, callback: v => '$' + v }, grid: { color: '#1e1e35' } } } }
   });
 }
 
-// ─────────────────────────────────────────────────────────────────────────────
-// CHART UTILITIES
-// ─────────────────────────────────────────────────────────────────────────────
 function destroyChart(id) {
-  if (charts[id]) {
-    try { charts[id].destroy(); } catch(e) {}
-    delete charts[id];
-  }
+  if (charts[id]) { try { charts[id].destroy(); } catch(e) {} delete charts[id]; }
 }
 
-// ─────────────────────────────────────────────────────────────────────────────
-// NAVIGATION
-// ─────────────────────────────────────────────────────────────────────────────
 function navTo(id) {
   const el = document.getElementById(id);
   const main = document.getElementById('main-content');
-  if (el && main) {
-    // Calculate offset within the scrollable main container
-    const elRect = el.getBoundingClientRect();
-    const mainRect = main.getBoundingClientRect();
-    const offset = elRect.top - mainRect.top + main.scrollTop;
-    main.scrollTo({ top: offset, behavior: 'smooth' });
-  }
-  
-  // Update active nav
-  document.querySelectorAll('.nav-item').forEach(item => {
-    item.classList.toggle('active', item.dataset.section === id);
-  });
-
-  // Close mobile sidebar
+  if (el && main) { main.scrollTo({ top: el.offsetTop, behavior: 'smooth' }); }
+  document.querySelectorAll('.nav-item').forEach(item => { item.classList.toggle('active', item.dataset.section === id); });
   const sidebar = document.getElementById('sidebar');
   if (sidebar && window.innerWidth <= 768) sidebar.classList.remove('open');
 }
@@ -2294,24 +1739,18 @@ function toggleSidebar() {
   document.getElementById('sidebar').classList.toggle('open');
 }
 
-// Intersection observer for active nav highlight — use .main as root
 const mainEl = document.getElementById('main-content');
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       const id = entry.target.id;
-      document.querySelectorAll('.nav-item').forEach(item => {
-        item.classList.toggle('active', item.dataset.section === id);
-      });
+      document.querySelectorAll('.nav-item').forEach(item => { item.classList.toggle('active', item.dataset.section === id); });
     }
   });
 }, { root: mainEl, threshold: 0.3 });
 
 document.querySelectorAll('.section').forEach(s => observer.observe(s));
 
-// ─────────────────────────────────────────────────────────────────────────────
-// BOOT
-// ─────────────────────────────────────────────────────────────────────────────
 loadData();
 </script>
 </body>
