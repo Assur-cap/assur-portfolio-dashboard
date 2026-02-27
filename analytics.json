@@ -1,2 +1,22 @@
 {
-  "computed_at": "2026-02-27T05:06:43Z"
+  "computed_at": "2026-02-27T05:06:43Z",
+  "portfolio": {
+    "holdings": {
+      "BTC": {
+        "symbol": "BTC",
+        "name": "Bitcoin",
+        "ticker": "BTCUSD",
+        "type": "crypto",
+        "qty": 2.36693,
+        "price": 67794.01,
+        "value": 160463.6760893,
+        "change": 303.5,
+        "changePct": 0.44969,
+        "dayHigh": 68223.07,
+        "dayLow": 66877.91,
+        "previousClose": 67490.51,
+        "dayChange": 718.363255
+      }
+    }
+  }
+}
