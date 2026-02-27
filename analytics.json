@@ -3,6 +3,10 @@
   "portfolio": {
     "holdings": {
       "BTC": {
+        "symbol": "BTC",
+        "name": "Bitcoin",
+        "ticker": "BTCUSD",
+        "type": "crypto",
         "qty": 0.45,
         "avg_cost": 41000,
         "current_price": 88432.15,
@@ -14,6 +18,10 @@
         "sector": "Store of Value"
       },
       "ETH": {
+        "symbol": "ETH",
+        "name": "Ethereum",
+        "ticker": "ETHUSD",
+        "type": "crypto",
         "qty": 3.2,
         "avg_cost": 2200,
         "current_price": 2198.45,
@@ -24,6 +32,12 @@
         "asset_class": "crypto",
         "sector": "Smart Contract Platform"
       }
-    }
+    },
+    "total_invested": 100000,
+    "total_value": 184282.60,
+    "cash": 50000,
+    "by_class": {},
+    "by_sector": {},
+    "by_geo": {}
   }
 }
